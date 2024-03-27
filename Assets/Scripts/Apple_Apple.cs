@@ -49,7 +49,7 @@ public class Apple_Apple : MonoBehaviour
     void Start()
     {
         apple_rigid = GetComponent<Rigidbody2D>();
-        G_S = GetComponentInParent<Game_System>();//±×·¦ µÇ¾îÀÖ´Â º¯¼ö´Â ¿µÇâÀ» ¸ø¹ÞÀ½ ±×·¡¼­ ÀÇ¹Ì°¡ Å©°Ô ¾øÀ½
+        G_S = GetComponentInParent<Game_System>();//ï¿½×·ï¿½ ï¿½Ç¾ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½ï¿½ ï¿½Ç¹Ì°ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         //Check_name();
         CheckState();
         if (A_G_S == Apple_Grab_State.Merged)
@@ -98,7 +98,7 @@ public class Apple_Apple : MonoBehaviour
             if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 12f)
             {
                 already_clicked = true;
-                Debug.Log("¾îµðºÎÅÍ ¾È‰ç´ÂÁö");
+                Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È‰ï¿½ï¿½ï¿½ï¿½");
 
             }
         }
@@ -109,18 +109,18 @@ public class Apple_Apple : MonoBehaviour
             {
                 Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition).x);
                 Vector2 Test = new Vector2(Mathf.Clamp(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, -9.6f, 9.6f), transform.position.y);
-                //x°ªÀÌ Æ¯Á¤ ¹üÀ§¸¦ ¹þ¾î³ª¸é ±×´ë·Î ¸Ê ¹ÛÀ¸·Î ¹þ¾î³ª±â ¶§¹®¿¡ ÀÏÁ¤ °ª ÀÌÇÏ±îÁö¸¸ °¡´ÉÇÏµµ·Ï
-                //Áö±Ý ÀÌ·¸°Ô ¸¸µé¸é ÀÌ À§Ä¡·Î ¹Ù·Î ¼ø°£ÀÌµ¿ ÇØ¹ö¸®±â ¶§¹®¿¡ ÀÌ·¸°Ô°¡ ¾Æ´Ï¶ó ¼­¼­È÷ ÀÌµ¿ÇÏ´Â °ÍÃ³·³ º¸ÀÌµµ·Ï ÇØ¾ßÇÔ
+                //xï¿½ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î³ªï¿½ï¿½ ï¿½×´ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î³ªï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½
+                //ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ø¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ï¿½Ô°ï¿½ ï¿½Æ´Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Ø¾ï¿½ï¿½ï¿½
                 transform.position = Vector2.Lerp(transform.position, Test, 20 * Time.deltaTime);
                 already_clicked = false;
             }
             if(already_clicked == true)
             {
-                Debug.Log("¿Ö ¾ÈµÇÁö");
+                Debug.Log("ï¿½ï¿½ ï¿½Èµï¿½ï¿½ï¿½");
                 Vector2 Test = new Vector2(Mathf.Clamp(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, -9.6f, 9.6f), transform.position.y);
-                //x°ªÀÌ Æ¯Á¤ ¹üÀ§¸¦ ¹þ¾î³ª¸é ±×´ë·Î ¸Ê ¹ÛÀ¸·Î ¹þ¾î³ª±â ¶§¹®¿¡ ÀÏÁ¤ °ª ÀÌÇÏ±îÁö¸¸ °¡´ÉÇÏµµ·Ï
+                //xï¿½ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î³ªï¿½ï¿½ ï¿½×´ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î³ªï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½
                 //Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition).x);
-                //Áö±Ý ÀÌ·¸°Ô ¸¸µé¸é ÀÌ À§Ä¡·Î ¹Ù·Î ¼ø°£ÀÌµ¿ ÇØ¹ö¸®±â ¶§¹®¿¡ ÀÌ·¸°Ô°¡ ¾Æ´Ï¶ó ¼­¼­È÷ ÀÌµ¿ÇÏ´Â °ÍÃ³·³ º¸ÀÌµµ·Ï ÇØ¾ßÇÔ
+                //ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ø¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ï¿½Ô°ï¿½ ï¿½Æ´Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Ø¾ï¿½ï¿½ï¿½
                 transform.position = Vector2.Lerp(transform.position, Test, 20 * Time.deltaTime);
                 already_clicked = false;
             }
@@ -136,7 +136,7 @@ public class Apple_Apple : MonoBehaviour
             {
                 if (Merge == false)
                 {
-                    middle_pos = new Vector3((crash_obj.transform.position.x + transform.position.x) / 2, (crash_obj.transform.position.y + transform.position.y) / 2 - 1, 0); //Áß½É°ªÀ» ±¸ÇØ¼­ ÃÖ´ëÇÑ º®¿¡ Ãæµ¹ÇÏÁö ¾Êµµ·Ï
+                    middle_pos = new Vector3((crash_obj.transform.position.x + transform.position.x) / 2, (crash_obj.transform.position.y + transform.position.y) / 2 - 1, 0); //ï¿½ß½É°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½
                     Merge = true;
                 }
                 apple_rigid.constraints = RigidbodyConstraints2D.FreezePosition;
@@ -144,7 +144,7 @@ public class Apple_Apple : MonoBehaviour
                 Vector3.Lerp(crash_obj.transform.position, middle_pos, 100* Time.deltaTime);
                 Vector3.Lerp(transform.position, middle_pos, 100 * Time.deltaTime);
                 aa += 2 * Time.deltaTime;
-                if(aa >=0.3f)//¾à°£ÀÇ µô·¹ÀÌ
+                if(aa >=0.3f)//ï¿½à°£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 {
                     DestroyAndScore(crash_obj);
                     Instantiate(next_Apple, middle_pos, Quaternion.identity, transform.parent);
@@ -173,7 +173,7 @@ public class Apple_Apple : MonoBehaviour
         {
             case Apple_state.first:
                 {
-                    //°¢ »óÅÂ¸¶´ÙÀÇ ±âº» ¼³Á¤À» ÇØÁÜ
+                    //ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                     Apple_Score = 1;
                     break;
                 }
