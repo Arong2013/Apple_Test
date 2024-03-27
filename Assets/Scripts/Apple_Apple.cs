@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Apple_Apple : MonoBehaviour
 {
+
+    [SerializeField] int cout;
     int coin;
     public bool crash = false;
     bool already_clicked = false;
