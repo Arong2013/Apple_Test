@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Apple_Apple : MonoBehaviour
 {
+
     int count; public int Count => count;
+
+
+    [SerializeField] int cout;
+    int coin;
     public bool crash = false;
     bool already_clicked = false;
     bool Merge = false;
