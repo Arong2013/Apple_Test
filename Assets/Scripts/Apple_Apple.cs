@@ -5,6 +5,7 @@ using UnityEngine;
 public class Apple_Apple : MonoBehaviour
 {
     int apple;
+    int hello;
     public bool crash = false;
     bool already_clicked = false;
     bool Merge = false;
