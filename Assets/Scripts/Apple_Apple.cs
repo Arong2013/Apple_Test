@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class Apple_Apple : MonoBehaviour
 {
-<<<<<<< Updated upstream
     int coin;
-=======
- //   int count; public int Count => count;
->>>>>>> Stashed changes
     public bool crash = false;
     bool already_clicked = false;
     bool Merge = false;
