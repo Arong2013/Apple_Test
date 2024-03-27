@@ -6,6 +6,7 @@ public class Apple_Apple : MonoBehaviour
 {
     int apple;
     int hello;
+    int hello2;
     public bool crash = false;
     bool already_clicked = false;
     bool Merge = false;
