@@ -10,7 +10,7 @@ public class Apple_Apple : MonoBehaviour
     int coin;
     int apple;
     int hello;
-    int hello2;
+    int hello2; int hello3;
     public bool crash = false;
     bool already_clicked = false;
     bool Merge = false;
