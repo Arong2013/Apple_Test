@@ -5,8 +5,8 @@ using UnityEngine;
 public class Apple_Apple : MonoBehaviour
 {
 
-    int count; public int Count => count;
 
+    int count; public int Count => count;
 
     [SerializeField] int cout;
     int coin;
@@ -54,7 +54,7 @@ public class Apple_Apple : MonoBehaviour
     void Start()
     {
         apple_rigid = GetComponent<Rigidbody2D>();
-        G_S = GetComponentInParent<Game_System>();//±×·¦ µÇ¾îÀÖ´Â º¯¼ö´Â ¿µÇâÀ» ¸ø¹ÞÀ½ ±×·¡¼­ ÀÇ¹Ì°¡ Å©°Ô ¾øÀ½
+        G_S = GetComponentInParent<Game_System>();//?×·? ?Ç¾??Ö´? ?????? ????À» ????À½ ?×·??? ?Ç¹Ì°? Å©?? ??À½
         //Check_name();
         CheckState();
         if (A_G_S == Apple_Grab_State.Merged)
@@ -103,7 +103,7 @@ public class Apple_Apple : MonoBehaviour
             if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 12f)
             {
                 already_clicked = true;
-                Debug.Log("¾îµðºÎÅÍ ¾È‰ç´ÂÁö");
+                Debug.Log("???????? ?È‰?????");
 
             }
         }
@@ -114,18 +114,18 @@ public class Apple_Apple : MonoBehaviour
             {
                 Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition).x);
                 Vector2 Test = new Vector2(Mathf.Clamp(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, -9.6f, 9.6f), transform.position.y);
-                //x°ªÀÌ Æ¯Á¤ ¹üÀ§¸¦ ¹þ¾î³ª¸é ±×´ë·Î ¸Ê ¹ÛÀ¸·Î ¹þ¾î³ª±â ¶§¹®¿¡ ÀÏÁ¤ °ª ÀÌÇÏ±îÁö¸¸ °¡´ÉÇÏµµ·Ï
-                //Áö±Ý ÀÌ·¸°Ô ¸¸µé¸é ÀÌ À§Ä¡·Î ¹Ù·Î ¼ø°£ÀÌµ¿ ÇØ¹ö¸®±â ¶§¹®¿¡ ÀÌ·¸°Ô°¡ ¾Æ´Ï¶ó ¼­¼­È÷ ÀÌµ¿ÇÏ´Â °ÍÃ³·³ º¸ÀÌµµ·Ï ÇØ¾ßÇÔ
+                //x???? Æ¯Á¤ ??À§?? ???î³ª?? ?×´??? ?? ??À¸?? ???î³ª?? ?????? ??Á¤ ?? ???Ï±????? ?????Ïµ???
+                //???? ?Ì·??? ?????? ?? À§Ä¡?? ?Ù·? ?????Ìµ? ?Ø¹????? ?????? ?Ì·??Ô°? ?Æ´Ï¶? ?????? ?Ìµ??Ï´? ??Ã³?? ???Ìµ??? ?Ø¾???
                 transform.position = Vector2.Lerp(transform.position, Test, 20 * Time.deltaTime);
                 already_clicked = false;
             }
             if(already_clicked == true)
             {
-                Debug.Log("¿Ö ¾ÈµÇÁö");
+                Debug.Log("?? ?Èµ???");
                 Vector2 Test = new Vector2(Mathf.Clamp(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, -9.6f, 9.6f), transform.position.y);
-                //x°ªÀÌ Æ¯Á¤ ¹üÀ§¸¦ ¹þ¾î³ª¸é ±×´ë·Î ¸Ê ¹ÛÀ¸·Î ¹þ¾î³ª±â ¶§¹®¿¡ ÀÏÁ¤ °ª ÀÌÇÏ±îÁö¸¸ °¡´ÉÇÏµµ·Ï
+                //x???? Æ¯Á¤ ??À§?? ???î³ª?? ?×´??? ?? ??À¸?? ???î³ª?? ?????? ??Á¤ ?? ???Ï±????? ?????Ïµ???
                 //Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition).x);
-                //Áö±Ý ÀÌ·¸°Ô ¸¸µé¸é ÀÌ À§Ä¡·Î ¹Ù·Î ¼ø°£ÀÌµ¿ ÇØ¹ö¸®±â ¶§¹®¿¡ ÀÌ·¸°Ô°¡ ¾Æ´Ï¶ó ¼­¼­È÷ ÀÌµ¿ÇÏ´Â °ÍÃ³·³ º¸ÀÌµµ·Ï ÇØ¾ßÇÔ
+                //???? ?Ì·??? ?????? ?? À§Ä¡?? ?Ù·? ?????Ìµ? ?Ø¹????? ?????? ?Ì·??Ô°? ?Æ´Ï¶? ?????? ?Ìµ??Ï´? ??Ã³?? ???Ìµ??? ?Ø¾???
                 transform.position = Vector2.Lerp(transform.position, Test, 20 * Time.deltaTime);
                 already_clicked = false;
             }
@@ -141,7 +141,7 @@ public class Apple_Apple : MonoBehaviour
             {
                 if (Merge == false)
                 {
-                    middle_pos = new Vector3((crash_obj.transform.position.x + transform.position.x) / 2, (crash_obj.transform.position.y + transform.position.y) / 2 - 1, 0); //Áß½É°ªÀ» ±¸ÇØ¼­ ÃÖ´ëÇÑ º®¿¡ Ãæµ¹ÇÏÁö ¾Êµµ·Ï
+                    middle_pos = new Vector3((crash_obj.transform.position.x + transform.position.x) / 2, (crash_obj.transform.position.y + transform.position.y) / 2 - 1, 0); //?ß½É°?À» ???Ø¼? ?Ö´??? ???? ?æµ¹???? ?Êµ???
                     Merge = true;
                 }
                 apple_rigid.constraints = RigidbodyConstraints2D.FreezePosition;
@@ -149,7 +149,7 @@ public class Apple_Apple : MonoBehaviour
                 Vector3.Lerp(crash_obj.transform.position, middle_pos, 100* Time.deltaTime);
                 Vector3.Lerp(transform.position, middle_pos, 100 * Time.deltaTime);
                 aa += 2 * Time.deltaTime;
-                if(aa >=0.3f)//¾à°£ÀÇ µô·¹ÀÌ
+                if(aa >=0.3f)//?à°£?? ??????
                 {
                     DestroyAndScore(crash_obj);
                     Instantiate(next_Apple, middle_pos, Quaternion.identity, transform.parent);
@@ -178,7 +178,7 @@ public class Apple_Apple : MonoBehaviour
         {
             case Apple_state.first:
                 {
-                    //°¢ »óÅÂ¸¶´ÙÀÇ ±âº» ¼³Á¤À» ÇØÁÜ
+                    //?? ???Â¸????? ?âº» ??Á¤À» ????
                     Apple_Score = 1;
                     break;
                 }
