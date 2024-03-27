@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Apple_Apple : MonoBehaviour
 {
-    int count;
+    int count; public int Count => count;   
     public bool crash = false;
     bool already_clicked = false;
     bool Merge = false;
