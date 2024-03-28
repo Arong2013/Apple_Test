@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class Apple_Apple : MonoBehaviour
 {
-    int count; public int Count => count;
-
-    [SerializeField] int cout;
-    int coin;
-    int apple;
-    int hello;
-    int hello2; int hello3;
     public bool crash = false;
     bool already_clicked = false;
     bool Merge = false;
@@ -105,6 +98,11 @@ public class Apple_Apple : MonoBehaviour
             A_G_S = Apple_Grab_State.UnGrab;
             apple_rigid.gravityScale = 4;
         }
+    }
+
+    public void OnMouseDrag()
+    {
+        
     }
 
     public void IsGrab()
