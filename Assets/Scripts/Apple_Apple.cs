@@ -32,7 +32,8 @@ public class Apple_Apple : MonoBehaviour
         None,
         Grab,
         UnGrab,
-        Merged
+        Merged,
+        GameOver
     };
 
     public enum Apple_state
@@ -238,6 +239,11 @@ public class Apple_Apple : MonoBehaviour
         Destroy(myApple);
 
             
+    }
+
+    public void Set_State_gameOver()
+    {
+        A_G_S = Apple_Grab_State.GameOver;
     }
 
     //void Set_State_num()

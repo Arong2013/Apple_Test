@@ -3,25 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+[SerializeField]
 public class Game_System : MonoBehaviour
 {
     public GameObject[] Apples = new GameObject[5];
+    public GameObject Destroy_EF;
     public List<GameObject> Apples_List; 
     public int check_Now_State = 1;
     public int Apple_score = 0;
     public TextMeshProUGUI Give_Score_num;
+    bool check_Destroy = false;
+    float D_time = 0f;
 
 
-    public enum System_State
+    public enum Game_State
     {
-        Apple_01,
-        Apple_02,
-        Apple_03,
-        Apple_04,
+        Game_Start = 10,
+        Game_Over = 50
+    
+    
     };
 
-
-    public System_State Apple_State = System_State.Apple_01;
+    public Game_State G_S = Game_State.Game_Start;
 
     void Start()
     {
@@ -31,8 +34,21 @@ public class Game_System : MonoBehaviour
 
     void Update()
     {
-        Check_ChildCount();
-
+        if(G_S == Game_State.Game_Start)
+        {
+            Check_ChildCount();
+        }
+        
+        if(G_S == Game_State.Game_Over)
+        {
+            if(check_Destroy == false)
+            {
+                StartCoroutine(Destroy_childObj());
+                check_Destroy = true;
+            }
+             //이게 반복해서 실행되는게 아니라 한번만 실행되야 함
+            //근데 지금 이렇게 해버리며 반복해서 계속 실행되서 다른 방법으로 해결해줘야함
+        }
 
     }
 
@@ -57,6 +73,21 @@ public class Game_System : MonoBehaviour
     {
         Apple_score += num;
         Give_Score_num.text = "현재점수\n" + Apple_score;
+    }
+
+    IEnumerator Destroy_childObj()
+    {
+        int count = transform.childCount;
+        
+        for(int i=0; i<count; i++)
+        {
+            yield return new WaitForSeconds(2f);
+            Destroy(transform.GetChild(0).gameObject);
+            //여기서 추가로 제거될때 이펙트 생성 및 점수 증가
+        }
+                
+        
+        
     }
 
 }
