@@ -161,10 +161,14 @@ public class Apple_Apple : MonoBehaviour
                 TTime += 2 * Time.deltaTime;
                 if(TTime >=0.3f)//?à°?? ??????
                 {
-                    DestroyAndScore(crash_obj);
+                    GameManager.Instance.AddAppleScore((int)A_S); 
+                    Destroy(crash_obj.gameObject);
                     Instantiate(next_Apple, middle_pos, Quaternion.identity, transform.parent);
-                    DestroyAndScore(gameObject);
-                    
+                    GameManager.Instance.AddAppleScore((int)A_S); 
+                    Destroy(this.gameObject);
+
+
+
                     crash = false;
                 }
                 
@@ -235,18 +239,6 @@ public class Apple_Apple : MonoBehaviour
                     break;
                 }
         }
-    }
-
-    void DestroyAndScore(GameObject myApple)
-    {
-        if(G_S == null)
-        {
-            G_S = GetComponentInParent<Game_System>();
-        }
-        G_S.Get_Score(myApple.GetComponent<Apple_Apple>().Apple_Score);
-        Destroy(myApple);
-
-            
     }
 
     public void Set_State_gameOver()

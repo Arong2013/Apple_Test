@@ -33,6 +33,8 @@ public class Dead_Line_ : MonoBehaviour
         if(TTime >2f)
         {
             Debug.Log("게임오버");
+            GameManager.Instance.GameOver();
+            Destroy(this.gameObject);
             GS.Game_is_Over();
         }
         //닿은 해당 오브젝트도 색변화 시켜주는 스크립트
