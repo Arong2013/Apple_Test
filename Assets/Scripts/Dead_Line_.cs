@@ -6,7 +6,7 @@ public class Dead_Line_ : MonoBehaviour
 {
     float TTime = 0f;
     LineRenderer Death_L;
-    public GameObject GameOver_panel;
+    public Game_System GS;
     public Transform[] Walls = new Transform[2];
     Vector3[] Walls_pos = new Vector3[2];
 
@@ -33,8 +33,7 @@ public class Dead_Line_ : MonoBehaviour
         if(TTime >2f)
         {
             Debug.Log("게임오버");
-            Time.timeScale = 0;
-            GameOver_panel.SetActive(true);
+            GS.Game_is_Over();
         }
         //닿은 해당 오브젝트도 색변화 시켜주는 스크립트
     }
