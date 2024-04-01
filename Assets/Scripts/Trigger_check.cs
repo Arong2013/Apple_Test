@@ -31,7 +31,6 @@ public class Trigger_check : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         TTime = 0f;
-        Dead_Line.SetActive(false);
     }
 
 
