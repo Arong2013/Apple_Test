@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : Singleton<UIManager>
 {
@@ -23,7 +24,10 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
-
+    public void Restart()
+    {
+        SceneManager.LoadScene("Main_Scene");
+    }
 
 
     public void Game_Quit()
