@@ -42,16 +42,16 @@ public class Drop_Apple : MonoBehaviour
     void IsApple_Grab()
     {
         
-        if(Input.GetMouseButtonDown(0))
-        {
-            if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < Walls_X[1] && isApple == false)
-            {
-                already_clicked = true;
-            }
-        }
+        //if(Input.GetMouseButtonDown(0))
+        //{
+        //    if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < Walls_X[1] && isApple == false)
+        //    {
+        //        already_clicked = true;
+        //    }
+        //}
         if (Input.GetMouseButtonUp(0))
         {
-            if(Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < Walls_X[1]-1)
+            if(Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 15)
             {
                 //마우스 왼쪽 버튼을 누르고 들어올렸을 때 하위 오브젝트로 뒀던 사과 오브젝트를 시스템 오브젝트의 하위 오브젝트로 변경시킴
                 if (isApple == false)
@@ -62,22 +62,22 @@ public class Drop_Apple : MonoBehaviour
                 {
                     transform.GetChild(0).parent = System.transform;
                 }
-                already_clicked = false;
+                //already_clicked = false;
             }
-            else if(already_clicked == true)
-            {
-                Debug.Log("이미 클릭했었음");
-                //마우스 왼쪽 버튼을 누르고 들어올렸을 때 하위 오브젝트로 뒀던 사과 오브젝트를 시스템 오브젝트의 하위 오브젝트로 변경시킴
-                if (isApple == false)
-                {
-                    isApple = true; //하위 오브젝트가 사과 오브젝트가 넘겨줬으므로 그걸 체크하기위해 사용한 isApple을 true시킴
-                }
-                if (transform.childCount > 0)
-                {
-                    transform.GetChild(0).parent = System.transform;
-                }
-                already_clicked = false;
-            }
+            //else if(already_clicked == true)
+            //{
+            //    Debug.Log("이미 클릭했었음");
+            //    //마우스 왼쪽 버튼을 누르고 들어올렸을 때 하위 오브젝트로 뒀던 사과 오브젝트를 시스템 오브젝트의 하위 오브젝트로 변경시킴
+            //    if (isApple == false)
+            //    {
+            //        isApple = true; //하위 오브젝트가 사과 오브젝트가 넘겨줬으므로 그걸 체크하기위해 사용한 isApple을 true시킴
+            //    }
+            //    if (transform.childCount > 0)
+            //    {
+            //        transform.GetChild(0).parent = System.transform;
+            //    }
+            //    already_clicked = false;
+            //}
 
 
 
