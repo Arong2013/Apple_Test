@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Apple_1
+  - Apple_2
+  - Apple_3
+  - Apple_4
+  - Apple_5
+  - Apple_6
+  - Apple_7
+  - Apple_8
+  - RWall
+  - LWall
   layers:
   - Default
   - TransparentFX

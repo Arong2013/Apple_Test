@@ -134,7 +134,7 @@ MonoBehaviour:
   Merge_effect: {fileID: 2103822393488473928, guid: 8e23b448ca7d66d4289238f2412fd791, type: 3}
   Crash_Obj: {fileID: 0}
   G_S: {fileID: 0}
-  A_S: 1
+  A_S: 6
   A_G_S: 3
 --- !u!58 &8811395000383197689
 CircleCollider2D:

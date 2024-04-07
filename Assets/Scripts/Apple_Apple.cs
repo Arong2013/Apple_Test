@@ -130,15 +130,15 @@ public class Apple_Apple : MonoBehaviour
                 transform.position = Vector2.Lerp(transform.position, Test, 20 * Time.deltaTime);
                 already_clicked = false;
             }
-            if(already_clicked == true)
-            {
-                Debug.Log("already_Clicked");
-                //Debug.Log("?? ?홴???");
-                Vector2 Test = new Vector2(Mathf.Clamp(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, -10.6f, 10.6f), transform.position.y);
+            //if(already_clicked == true) //수박게임이 진행되는 곳에서 이미 클릭을 했을 때를 체크해주는 함수인데 생각보다 오류가 많아서 주석처리함
+            //{
+            //    Debug.Log("already_Clicked");
+            //    //Debug.Log("?? ?홴???");
+            //    Vector2 Test = new Vector2(Mathf.Clamp(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, -10.6f, 10.6f), transform.position.y);
                 
-                transform.position = Vector2.Lerp(transform.position, Test, 20 * Time.deltaTime);
-                already_clicked = false;
-            }
+            //    transform.position = Vector2.Lerp(transform.position, Test, 20 * Time.deltaTime);
+            //    already_clicked = false;
+            //}
         }
     }
 
@@ -183,6 +183,15 @@ public class Apple_Apple : MonoBehaviour
             crash = true;
             Crash_Obj = collision.gameObject;
             
+        }
+
+        if (collision.CompareTag("LWall"))
+        {
+            //이동하는 함수를 잠시 멈춤
+        }
+        else if(collision.CompareTag("RWall"))
+        {
+            //이동하는 함수를 잠시 멈춤
         }
     }
 
