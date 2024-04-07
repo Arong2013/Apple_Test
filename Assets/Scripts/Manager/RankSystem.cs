@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -48,6 +49,12 @@ public class RankSystem : MonoBehaviour
             string[] column = row[i].Split('\t');
             Ranks.Add(System.Convert.ToInt32(column[0]));
         }
-        Ranks.Sort();
+
+        Ranks = Ranks.OrderByDescending(num => num).ToList();
+
+        var list = new List<int>();
+        for (var i = 0; i < 11; i++)
+            list.Add(Ranks[i]);
+        UIManager.Instance.RankUI.GetComponent<RankUI>().Init(list);
     }
 }

@@ -13,6 +13,7 @@ public class UIManager : Singleton<UIManager>
     public Button Quit;
 
     [SerializeField] GameObject EscUI;
+    [SerializeField] GameObject rankUI; public GameObject RankUI => rankUI; 
 
     public void Start()
     {
