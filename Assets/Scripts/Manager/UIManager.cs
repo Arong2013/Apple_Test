@@ -11,16 +11,11 @@ public class UIManager : Singleton<UIManager>
     public TextMeshProUGUI Score_GameOver;
     public TextMeshProUGUI[] Normal_txt;
     public TextMeshProUGUI[] Fever_txt;
-
     public GameObject MainMenu;
-    public Game_System System;//ÇÇ¹öÅ¸ÀÓ ¶§¹®¿¡ ¹Þ¾Æ¿Â °Å¶ó¼­ ¼öÁ¤ÇÒ ÀÇÇâ ÀÖÀ½
+    public Game_System System;//ï¿½Ç¹ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¿ï¿½ ï¿½Å¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public Button Retry;
     public Button Quit;
     public Image Fever;
-
-    
-
-
     string Name;
 
     [SerializeField] GameObject EscUI;
@@ -33,11 +28,11 @@ public class UIManager : Singleton<UIManager>
 
     public void Update()
     {
-        Score.text =  "ÇöÀç Á¡¼ö\n" + GameManager.Instance.Score.ToString();
-        Score_GameOver.text = GameManager.Instance.Score.ToString() + " " + Name; // + Ãß°¡·Î À¯Àú¸íµµ ³Ö¾îÁà¾ßÇÔ
+        Score.text =  "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½\n" + GameManager.Instance.Score.ToString();
+        Score_GameOver.text = GameManager.Instance.Score.ToString() + " " + Name; // + ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if(System.G_S != Game_System.Game_State.Fever_Time)
         {
-            Fever_Fill(); //ÇÇ¹öÅ¸ÀÓÀÏ¶§ »óÅÂ º¯È­ ±ÝÁö
+            Fever_Fill(); //ï¿½Ç¹ï¿½Å¸ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½
         }
         
 

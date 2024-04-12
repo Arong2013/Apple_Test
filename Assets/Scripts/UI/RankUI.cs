@@ -7,29 +7,34 @@ using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 public class RankUI : MonoBehaviour
 {
     [SerializeField] Transform Parent;
-    [SerializeField] RankSlot Slot;
+    List<RankSlot> slotList = new List<RankSlot>();
 
     [SerializeField] Sprite GoldMd,SilverMd,BronzeMd;
-    List<int> rank;
+    List<PlayerInformation> rank;
     public void OnEnable()
     {
+        
+    }
+    public void Init(List<PlayerInformation> _list)
+    {
+        rank = _list;
+
+
+        for(var a = 0; a < Parent.childCount; a++)
+        {
+            slotList.Add(Parent.GetChild(a).GetComponent<RankSlot>());
+        }
+
         for(int i = 0; i<rank.Count; i++)
         {
-            RankSlot slot = Instantiate(Slot.gameObject, Parent).GetComponent<RankSlot>();
             if (i == 0)
-                slot.AddRank(GoldMd, rank[i], "Dong");
+                slotList[i].AddRank(GoldMd, rank[i].Score, rank[i].playerName);
             else if (i == 1)
-                slot.AddRank(SilverMd, rank[i], "Dong");
+                slotList[i].AddRank(SilverMd, rank[i].Score, rank[i].playerName);
             else if (i == 2)
-                slot.AddRank(BronzeMd, rank[i], "Dong");
+                slotList[i].AddRank(BronzeMd, rank[i].Score, rank[i].playerName);
             else
-                slot.AddRank(null, rank[i], "Dong");
+                slotList[i].AddRank(null, rank[i].Score, rank[i].playerName);
         }
-    }
-
-    public void Init(List<int > rankList)
-    {
-        rank = rankList;
-        gameObject.SetActive(true); 
     }
 }

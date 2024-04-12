@@ -64,8 +64,6 @@ public class GameManager : Singleton<GameManager>
     {
         Fever_count =0;
     }
-
-
     public void GameOver()
     {
         rankSystem.GameOver(score);

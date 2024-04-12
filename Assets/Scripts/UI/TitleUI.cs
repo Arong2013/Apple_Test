@@ -16,7 +16,7 @@ public class TitleUI : MonoBehaviour
     {
         startBtn.onClick.AddListener(() => 
         {
-            if(string.IsNullOrEmpty(inputField.text))
+             if(!string.IsNullOrEmpty(inputField.text))
              MainManager.Instance.GoToPlayScene(inputField.text);
              else
              {

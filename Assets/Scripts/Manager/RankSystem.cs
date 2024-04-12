@@ -4,12 +4,23 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
+public struct PlayerInformation
+{
+    public string playerName;
+    public int Score;
+
+
+    public PlayerInformation(int _score, string _playerName)
+    {
+        Score = _score;
+        playerName = _playerName;
+    }
+}
+
 public class RankSystem : MonoBehaviour
 {
-    const string RankURL = "https://script.google.com/macros/s/AKfycbwrPsz6Iq07whi9aZvTn4Cq012hN3So2C1fIyH2nEZBzGcFmR6DlNlPhqQajDWUjItO2A/exec";
+    const string RankURL = "https://script.google.com/macros/s/AKfycbx9-CBDXziRtcLpYAnyLfjmoliSz6hr3X2Hig0QGTqnC8b9KJqUiXcHq093nMK7ftFS0g/exec";
     const string RankUpdataURLs = "https://docs.google.com/spreadsheets/d/1s1jZriYn_WqKTBZuX0WRbfFLnMmHFpwG2c7HMPtrDLo/export?format=tsv&range=A2:F&gid=0";
-    [SerializeField] List<int> Ranks = new List<int>();
-
     [SerializeField] int testScore;
 
     public void GameOver(int _Score)
@@ -21,7 +32,7 @@ public class RankSystem : MonoBehaviour
 
         WWWForm form = new WWWForm();
         form.AddField("order", "AddRank");
-        form.AddField("",MainManager.Instance.PlayerName.ToString());
+        form.AddField("PlayerName",MainManager.Instance.PlayerName);
         form.AddField("Score", testString);
 
         StartCoroutine(RankUpData(form));
@@ -29,33 +40,30 @@ public class RankSystem : MonoBehaviour
 
     public IEnumerator RankUpData(WWWForm _form)
     {
-
         using (UnityWebRequest www = UnityWebRequest.Post(RankURL, _form))
         {
             yield return www.SendWebRequest();
             if (www.isDone)
-                print(www.downloadHandler.text);
-
-            
-          
+                print(www.downloadHandler.text);        
         }
-
         UnityWebRequest www2 = UnityWebRequest.Get(RankUpdataURLs);
         yield return www2.SendWebRequest();
         string[] row = www2.downloadHandler.text.Split('\n');
         int rowsize = row.Length;
+         var PlayersData = new List<PlayerInformation>();
 
         for (int i = 0; i < rowsize; i++)
         {
             string[] column = row[i].Split('\t');
-            Ranks.Add(System.Convert.ToInt32(column[0]));
+            PlayersData.Add(new PlayerInformation(System.Convert.ToInt32(column[0]),column[1]));
         }
 
-        Ranks = Ranks.OrderByDescending(num => num).ToList();
-
-        var list = new List<int>();
-        for (var i = 0; i < 11; i++)
-            list.Add(Ranks[i]);
+        var RankList = PlayersData.OrderByDescending(player => player.Score).ToList();
+        var list = new List<PlayerInformation>();
+        for (var i = 0; i < 5; i++)
+            list.Add(RankList[i]);
+        var nameList = new List<string>();
+        
         UIManager.Instance.RankUI.GetComponent<RankUI>().Init(list);
     }
 }
