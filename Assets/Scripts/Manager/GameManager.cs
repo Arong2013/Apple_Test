@@ -34,7 +34,7 @@ public class GameManager : Singleton<GameManager>
     }
    */
     /// <summary>
-    /// ¼ö¹Ú Á¡¼ö ¿Ã·ÁÁÖ°í »ý¼º 
+    /// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½ 
     /// </summary>
     public void AddScore(AppleObj _apple, Vector3 _pos)
     {

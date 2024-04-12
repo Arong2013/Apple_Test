@@ -21,6 +21,7 @@ public class RankSystem : MonoBehaviour
 
         WWWForm form = new WWWForm();
         form.AddField("order", "AddRank");
+        form.AddField("",MainManager.Instance.PlayerName.ToString());
         form.AddField("Score", testString);
 
         StartCoroutine(RankUpData(form));
