@@ -27,6 +27,7 @@ public class Apple_Apple : MonoBehaviour
 
     Rigidbody2D apple_rigid;
     int Apple_Score = 1;
+    int Fever_Count = 0;
 
     float TTime =0;
 
@@ -74,7 +75,7 @@ public class Apple_Apple : MonoBehaviour
 
     void Update()
     {
-        if(G_S.G_S == Game_System.Game_State.Game_Start)
+        if(G_S.G_S == Game_System.Game_State.Game_Start || G_S.G_S == Game_System.Game_State.Fever_Time)
         {
             Check_name();
 
@@ -130,15 +131,7 @@ public class Apple_Apple : MonoBehaviour
                 transform.position = Vector2.Lerp(transform.position, Test, 20 * Time.deltaTime);
                 already_clicked = false;
             }
-            //if(already_clicked == true) //수박게임이 진행되는 곳에서 이미 클릭을 했을 때를 체크해주는 함수인데 생각보다 오류가 많아서 주석처리함
-            //{
-            //    Debug.Log("already_Clicked");
-            //    //Debug.Log("?? ?홴???");
-            //    Vector2 Test = new Vector2(Mathf.Clamp(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, -10.6f, 10.6f), transform.position.y);
-                
-            //    transform.position = Vector2.Lerp(transform.position, Test, 20 * Time.deltaTime);
-            //    already_clicked = false;
-            //}
+            
         }
     }
 
@@ -161,10 +154,21 @@ public class Apple_Apple : MonoBehaviour
                 TTime += 2 * Time.deltaTime;
                 if(TTime >=0.3f)//?析?? ??????
                 {
-                    GameManager.Instance.AddAppleScore((int)A_S); 
+                    //GameManager.Instance.AddAppleScore((int)A_S); 
                     Destroy(crash_obj.gameObject);
                     Instantiate(next_Apple, middle_pos, Quaternion.identity, transform.parent);
-                    GameManager.Instance.AddAppleScore((int)A_S); 
+                    //GameManager.Instance.AddAppleScore((int)A_S);
+                    if(G_S.G_S != Game_System.Game_State.Fever_Time)
+                    {
+                        GameManager.Instance.AddAppleScore((int)A_S * 2);
+                        GameManager.Instance.AddFeverCount(Fever_Count);
+                        
+                    }
+                    else
+                    {
+                        GameManager.Instance.AddAppleScore((int)A_S*4);
+                    }
+                    
                     Destroy(this.gameObject);
 
 
@@ -203,48 +207,56 @@ public class Apple_Apple : MonoBehaviour
                 {
                     //?? ???쨍????? ?羞???정을 ????
                     Apple_Score = 1;
+                    Fever_Count = 1;
                     break;
                 }
                 
             case Apple_state.second:
                 {
                     Apple_Score = 2;
+                    Fever_Count = 2;
                     break;
                 }
                 
             case Apple_state.thrid:
                 {
-                    Apple_Score = 3;
+                    Apple_Score = 4;
+                    Fever_Count = 3;
                     break;
                 }
                 
             case Apple_state.fourth:
                 {
-                    Apple_Score = 4;
+                    Apple_Score = 8;
+                    Fever_Count = 4;
                     break;
                 }
                 
             case Apple_state.fifth:
                 {
-                    Apple_Score = 5;
+                    Apple_Score = 16;
+                    Fever_Count = 5;
                     break;
                 }
 
             case Apple_state.sixth:
                 {
-                    Apple_Score = 6;
+                    Apple_Score = 32;
+                    Fever_Count = 6;
                     break;
                 }
 
             case Apple_state.seventh:
                 {
-                    Apple_Score = 7;
+                    Apple_Score = 64;
+                    Fever_Count = 7;
                     break;
                 }
 
             case Apple_state.eighth:
                 {
-                    Apple_Score = 8;
+                    Apple_Score = 128;
+                    Fever_Count = 8;
                     break;
                 }
         }

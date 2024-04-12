@@ -18,7 +18,7 @@ public class Effect_Controller : MonoBehaviour
     {
         //사과 오브젝트마다 이펙트를 다르게 만들어줌
         Apple_State = GetComponentInParent<Apple_Apple>();
-        Debug.Log((int)Apple_State.A_S * transform.localScale.x);
+        //Debug.Log((int)Apple_State.A_S * transform.localScale.x);
         transform.localScale = new Vector3((int)Apple_State.A_S * transform.localScale.x, (int)Apple_State.A_S * transform.localScale.y, transform.localScale.z);
     }
 

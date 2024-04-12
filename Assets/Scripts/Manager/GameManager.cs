@@ -11,6 +11,7 @@ public class GameManager : Singleton<GameManager>
 
    
     [SerializeField] int score = 0; public int Score => score;
+    [SerializeField] int Fever_count = 0; public int Fever => Fever_count;
     private AppleObj cunObj; public AppleObj CunObj => cunObj;
    
 
@@ -52,6 +53,18 @@ public class GameManager : Singleton<GameManager>
     {
         score += _score;
     }
+
+    public void AddFeverCount(int _fever)
+    {
+        Fever_count += _fever;
+        Debug.Log("Check");
+    }
+
+    public void FeverInitialize()
+    {
+        Fever_count =0;
+    }
+
 
     public void GameOver()
     {

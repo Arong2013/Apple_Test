@@ -32,7 +32,7 @@ public class Drop_Apple : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(G_S.G_S == Game_System.Game_State.Game_Start)
+        if(G_S.G_S == Game_System.Game_State.Game_Start || G_S.G_S == Game_System.Game_State.Fever_Time && Time.timeScale != 0) //메인메뉴 열려있는 동안 해당 스크립트가 동작하지 않도록
         {
             IsApple_Grab();
         }
@@ -42,13 +42,7 @@ public class Drop_Apple : MonoBehaviour
     void IsApple_Grab()
     {
         
-        //if(Input.GetMouseButtonDown(0))
-        //{
-        //    if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < Walls_X[1] && isApple == false)
-        //    {
-        //        already_clicked = true;
-        //    }
-        //}
+        
         if (Input.GetMouseButtonUp(0))
         {
             if(Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 15)
@@ -64,21 +58,7 @@ public class Drop_Apple : MonoBehaviour
                 }
                 //already_clicked = false;
             }
-            //else if(already_clicked == true)
-            //{
-            //    Debug.Log("이미 클릭했었음");
-            //    //마우스 왼쪽 버튼을 누르고 들어올렸을 때 하위 오브젝트로 뒀던 사과 오브젝트를 시스템 오브젝트의 하위 오브젝트로 변경시킴
-            //    if (isApple == false)
-            //    {
-            //        isApple = true; //하위 오브젝트가 사과 오브젝트가 넘겨줬으므로 그걸 체크하기위해 사용한 isApple을 true시킴
-            //    }
-            //    if (transform.childCount > 0)
-            //    {
-            //        transform.GetChild(0).parent = System.transform;
-            //    }
-            //    already_clicked = false;
-            //}
-
+      
 
 
         }
@@ -149,3 +129,41 @@ public class Drop_Apple : MonoBehaviour
     }
 
 }
+
+
+////if(Input.GetMouseButtonDown(0))
+////{
+////    if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < Walls_X[1] && isApple == false)
+////    {
+////        already_clicked = true;
+////    }
+////}
+//if (Input.GetMouseButtonUp(0))
+//{
+//    if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 15)
+//    {
+//        //마우스 왼쪽 버튼을 누르고 들어올렸을 때 하위 오브젝트로 뒀던 사과 오브젝트를 시스템 오브젝트의 하위 오브젝트로 변경시킴
+//        if (isApple == false)
+//        {
+//            isApple = true; //하위 오브젝트가 사과 오브젝트가 넘겨줬으므로 그걸 체크하기위해 사용한 isApple을 true시킴
+//        }
+//        if (transform.childCount > 0)
+//        {
+//            transform.GetChild(0).parent = System.transform;
+//        }
+//        //already_clicked = false;
+//    }
+//            //else if(already_clicked == true)
+//            //{
+//            //    Debug.Log("이미 클릭했었음");
+//            //    //마우스 왼쪽 버튼을 누르고 들어올렸을 때 하위 오브젝트로 뒀던 사과 오브젝트를 시스템 오브젝트의 하위 오브젝트로 변경시킴
+//            //    if (isApple == false)
+//            //    {
+//            //        isApple = true; //하위 오브젝트가 사과 오브젝트가 넘겨줬으므로 그걸 체크하기위해 사용한 isApple을 true시킴
+//            //    }
+//            //    if (transform.childCount > 0)
+//            //    {
+//            //        transform.GetChild(0).parent = System.transform;
+//            //    }
+//            //    already_clicked = false;
+//            //}
