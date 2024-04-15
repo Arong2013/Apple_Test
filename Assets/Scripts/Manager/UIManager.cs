@@ -28,7 +28,7 @@ public class UIManager : Singleton<UIManager>
 
     public void Update()
     {
-        Score.text =  "���� ����\n" + GameManager.Instance.Score.ToString();
+        Score.text =  "현재 점수\n" + GameManager.Instance.Score.ToString();
         Score_GameOver.text = GameManager.Instance.Score.ToString() + " " + Name; // + �߰��� �������� �־������
         if(System.G_S != Game_System.Game_State.Fever_Time)
         {
@@ -57,7 +57,9 @@ public class UIManager : Singleton<UIManager>
         if (Fever.fillAmount < 1)
         {
             //Debug.Log((float)GameManager.Instance.Fever);
-            Fever.fillAmount = (float)GameManager.Instance.Fever / 50f;
+            float fillnow = Fever.fillAmount;
+            Fever.fillAmount = Mathf.Lerp(fillnow, (float)GameManager.Instance.Fever / 50f, Time.deltaTime * 20f);
+            //Fever.fillAmount = (float)GameManager.Instance.Fever / 50f;
         }
         else
         {

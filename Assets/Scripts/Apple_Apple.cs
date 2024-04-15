@@ -113,7 +113,7 @@ public class Apple_Apple : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0))
         {
-            if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 12f)
+            if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 16f)
             {
                 already_clicked = true;
                 //Debug.Log("???????? ???????");
@@ -123,12 +123,13 @@ public class Apple_Apple : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 12f)
+            if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 16f)
             {
                 //Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition).x);
-                Vector2 Test = new Vector2(Mathf.Clamp(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, -10.6f, 10.6f), transform.position.y);
-                
-                transform.position = Vector2.Lerp(transform.position, Test, 20 * Time.deltaTime);
+                Vector2 Test = new Vector2(Mathf.Clamp(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, -16f, 16f), transform.position.y);
+                //Clamp 함수의 최소 최대 값 수정해서 이상하게 될 수도 있음 체크
+                //apple_rigid.transform.position = Vector2.Lerp(transform.position, Test, 20 * Time.deltaTime);
+                apple_rigid.MovePosition(Test); //뭔가 이상해요
                 already_clicked = false;
             }
             
