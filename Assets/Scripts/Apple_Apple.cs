@@ -80,7 +80,7 @@ public class Apple_Apple : MonoBehaviour
             Check_name();
 
             if (A_G_S == Apple_Grab_State.Grab)
-            {
+            { 
                 IsGrab();
             }
 

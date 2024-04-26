@@ -67,23 +67,23 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
-    public void Fever_Mode()
-    {
-        for(int i=0; i< Fever_txt.Length; i++)
-        {
-            Fever_txt[i].gameObject.SetActive(true);
-            Normal_txt[i].gameObject.SetActive(false);
-        }
-    }
+    //public void Fever_Mode()
+    //{
+    //    for(int i=0; i< Fever_txt.Length; i++)
+    //    {
+    //        Fever_txt[i].gameObject.SetActive(true);
+    //        Normal_txt[i].gameObject.SetActive(false);
+    //    }
+    //}
 
-    public void Normal_mode()
-    {
-        for(int i=0; i<Normal_txt.Length; i++)
-        {
-            Normal_txt[i].gameObject.SetActive(true);
-            Fever_txt[i].gameObject.SetActive(false);
-        }
-    }
+    //public void Normal_mode()
+    //{
+    //    for(int i=0; i<Normal_txt.Length; i++)
+    //    {
+    //        Normal_txt[i].gameObject.SetActive(true);
+    //        Fever_txt[i].gameObject.SetActive(false);
+    //    }
+    //}
 
 
     public void Restart()

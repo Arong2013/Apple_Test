@@ -113,14 +113,14 @@ public class Game_System : MonoBehaviour
     {
         Fever_Effect_Panel.SetActive(true);
         Fever_Check.Fever.fillAmount -= 0.1f * Time.deltaTime;
-        UIManager.Instance.Fever_Mode();
+        //UIManager.Instance.Fever_Mode();
         if(Fever_Check.Fever.fillAmount <= 0)
         {
             Fever_Effect_Panel.SetActive(false);
             G_S &= ~Game_State.Fever_Time;//플래그로 해당 상태만 삭제를 해줘야하는데 원래 들어있는 Game_Start상태도 같이 삭제가 되어버림
             G_S = Game_State.Game_Start;
             GameManager.Instance.FeverInitialize();
-            UIManager.Instance.Normal_mode();
+            //UIManager.Instance.Normal_mode();
         }
         
     }
