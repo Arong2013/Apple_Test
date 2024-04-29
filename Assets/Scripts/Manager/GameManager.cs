@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField] SerializedDictionary<int, GameObject> NextAppleData;
+<<<<<<< HEAD
     RankSystem rankSystem;
     [SerializeField] Transform AppleDropTransform;
 
@@ -23,6 +24,20 @@ public class GameManager : Singleton<GameManager>
        // cunObj = apple.GetComponent<AppleObj>();
     }
     /*
+=======
+    [SerializeField] Transform AppleDropTransform;
+
+   
+    int score = 0; public int Score => score;
+    private AppleObj cunObj; public AppleObj CunObj => cunObj;
+
+    public void Start()
+    {
+        GameObject apple = Instantiate(NextApple().gameObject, AppleDropTransform.transform.position, Quaternion.identity);
+        cunObj = apple.GetComponent<AppleObj>();
+    }
+
+>>>>>>> main
     public void Update()
     {
         if(!cunObj.IsMoveable || !cunObj)
@@ -32,22 +47,32 @@ public class GameManager : Singleton<GameManager>
             score += cunObj.AppleData.Score;
         }    
     }
+<<<<<<< HEAD
    */
     /// <summary>
     /// ���� ���� �÷��ְ� ���� 
     /// </summary>
+=======
+
+
+>>>>>>> main
     public void AddScore(AppleObj _apple, Vector3 _pos)
     {
         score += _apple.AppleData.Score;
         if (_apple.AppleData.NextApple)
             Instantiate(_apple.AppleData.NextApple.gameObject, _pos, Quaternion.identity);
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
     public GameObject NextApple()
     {
         var randcount = Random.Range(0, 101);
         var apple = NextAppleData.Keys.First(x => x >= randcount);
         return NextAppleData[apple];
     }
+<<<<<<< HEAD
    
     public void AddAppleScore(int _score)
     {
@@ -68,4 +93,6 @@ public class GameManager : Singleton<GameManager>
     {
         rankSystem.GameOver(score);
     }
+=======
+>>>>>>> main
 }

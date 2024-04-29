@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class UIManager : Singleton<UIManager>
 {
     public TextMeshProUGUI Score;
+<<<<<<< HEAD
     public TextMeshProUGUI Score_GameOver;
     public TextMeshProUGUI[] Normal_txt;
     public TextMeshProUGUI[] Fever_txt;
@@ -97,5 +98,12 @@ public class UIManager : Singleton<UIManager>
     {
         Application.Quit();
     }
+=======
+>>>>>>> main
 
+
+    public void Update()
+    {
+        Score.text =  "현재 점수" + GameManager.Instance.Score.ToString();
+    }
 }

@@ -8,9 +8,6 @@ public class Drop_Apple : MonoBehaviour
     public GameObject System;
     public Game_System G_S;
     public GameObject next_Apple;
-    //public Transform Wall_L;
-
-    float[] Walls_X = new float[2];
 
     Show_Next_Apple S_N_A;
 
@@ -24,28 +21,45 @@ public class Drop_Apple : MonoBehaviour
     {
         //Instantiate(Apple, transform).transform.parent = System.transform;
         Instantiate(Apple[0], transform).transform.parent = transform;
-        Walls_X[0] = G_S.Set_Wall_X_pos();
-        Walls_X[1] = -Walls_X[0];
         
     }
 
     // Update is called once per frame
     void Update()
     {
+<<<<<<< HEAD
         if(G_S.G_S == Game_System.Game_State.Game_Start || G_S.G_S == Game_System.Game_State.Fever_Time && Time.timeScale != 0) //메인메뉴 열려있는 동안 해당 스크립트가 동작하지 않도록
         {
             IsApple_Grab();
         }
         
+=======
+        IsApple_Grab();
+>>>>>>> main
     }
 
     void IsApple_Grab()
     {
         
+<<<<<<< HEAD
         
         if (Input.GetMouseButtonUp(0))
         {
             if(Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 16.5)
+=======
+        if(Input.GetMouseButtonDown(0))
+        {
+            if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 11.5f && isApple == false)
+            {
+                already_clicked = true;
+                
+
+            }
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            if(Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) <11.5f)
+>>>>>>> main
             {
                 //마우스 왼쪽 버튼을 누르고 들어올렸을 때 하위 오브젝트로 뒀던 사과 오브젝트를 시스템 오브젝트의 하위 오브젝트로 변경시킴
                 if (isApple == false)
