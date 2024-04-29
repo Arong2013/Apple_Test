@@ -4,21 +4,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+[SerializeField]
 public class Game_System : MonoBehaviour
 {
     public GameObject[] Apples = new GameObject[5];
-<<<<<<< HEAD
     public GameObject Destroy_EF;
     public GameObject Game_Over_panel;
     public GameObject Wall_L;
     public GameObject Fever_Effect_Panel;
-=======
->>>>>>> main
     public List<GameObject> Apples_List; 
     public int check_Now_State = 1;
     public int Apple_score = 0;
     public TextMeshProUGUI Give_Score_num;
-<<<<<<< HEAD
     public UIManager Fever_Check;
     bool check_Destroy = false;
 
@@ -28,20 +25,9 @@ public class Game_System : MonoBehaviour
         Game_Start = 10,
         Fever_Time =30,
         Game_Over = 50
-=======
-
-
-    public enum System_State
-    {
-        Apple_01,
-        Apple_02,
-        Apple_03,
-        Apple_04,
->>>>>>> main
     };
 
-
-    public System_State Apple_State = System_State.Apple_01;
+    public Game_State G_S = Game_State.Game_Start;
 
     void Start()
     {
@@ -51,10 +37,10 @@ public class Game_System : MonoBehaviour
 
     void Update()
     {
-        Check_ChildCount();
+        Game_State_Control();
 
+    }
 
-<<<<<<< HEAD
     void Game_State_Control()
     {
         if (G_S == Game_State.Game_Start || G_S == Game_State.Fever_Time)
@@ -88,8 +74,6 @@ public class Game_System : MonoBehaviour
             //이게 반복해서 실행되는게 아니라 한번만 실행되야 함
             //근데 지금 이렇게 해버리며 반복해서 계속 실행되서 다른 방법으로 해결해줘야함
         }
-=======
->>>>>>> main
     }
 
     void Check_ChildCount() //배열안에 현재 오브젝트의 하위 오브젝트들을 순차적으로 넣어줍니다.
@@ -109,13 +93,22 @@ public class Game_System : MonoBehaviour
         }
     }
 
+    public void Game_is_Over()
+    {
+        G_S = Game_State.Game_Over;
+    }
+
+    public float Set_Wall_X_pos()
+    {
+        return Wall_L.transform.position.x;
+    }
+
     public void Get_Score(int num)
     {
         Apple_score += num;
         Give_Score_num.text = "현재점수\n" + Apple_score;
     }
 
-<<<<<<< HEAD
     void Fever_Mode()
     {
         Fever_Effect_Panel.SetActive(true);
@@ -182,6 +175,6 @@ public class Game_System : MonoBehaviour
 
 
 
-=======
->>>>>>> main
 }
+
+

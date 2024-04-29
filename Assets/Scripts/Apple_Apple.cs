@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Apple_Apple : MonoBehaviour
 {
+    int count; public int Count => count;
+
+    [SerializeField] int cout;
+    int coin;
+    int apple;
+    int hello;
+    int hello2; int hello3;
     public bool crash = false;
     bool already_clicked = false;
     bool Merge = false;
@@ -15,18 +22,22 @@ public class Apple_Apple : MonoBehaviour
     public GameObject Merge_effect;
     public GameObject Crash_Obj;
     public Game_System G_S;
+
+    Drop_Apple D_A;
+
     Rigidbody2D apple_rigid;
     int Apple_Score = 1;
     int Fever_Count = 0;
 
-    float aa =0;
+    float TTime =0;
 
     public enum Apple_Grab_State
     { 
         None,
         Grab,
         UnGrab,
-        Merged
+        Merged,
+        GameOver
     };
 
     public enum Apple_state
@@ -49,7 +60,10 @@ public class Apple_Apple : MonoBehaviour
     void Start()
     {
         apple_rigid = GetComponent<Rigidbody2D>();
-        G_S = GetComponentInParent<Game_System>();//?×·? ?Ç¾??Ö´? ?????? ????À» ????À½ ?×·??? ?Ç¹Ì°? Å©?? ??À½
+        G_S = GameObject.FindGameObjectWithTag("GameController").GetComponent<Game_System>();
+
+        
+
         //Check_name();
         CheckState();
         if (A_G_S == Apple_Grab_State.Merged)
@@ -61,7 +75,6 @@ public class Apple_Apple : MonoBehaviour
 
     void Update()
     {
-<<<<<<< HEAD
         if(G_S.G_S == Game_System.Game_State.Game_Start || G_S.G_S == Game_System.Game_State.Fever_Time)
         {
             Check_name();
@@ -76,20 +89,8 @@ public class Apple_Apple : MonoBehaviour
             {
                 Apple_Contact(Crash_Obj);
             }
-=======
-        Check_name();
-
-        if (A_G_S == Apple_Grab_State.Grab)
-        {
-            IsGrab();
         }
-
-
-        if(crash == true && A_S != Apple_state.eighth)
-        {
-            Apple_Contact(Crash_Obj);
->>>>>>> main
-        }
+        
         
     }
 
@@ -107,11 +108,6 @@ public class Apple_Apple : MonoBehaviour
         }
     }
 
-    public void OnMouseDrag()
-    {
-        
-    }
-
     public void IsGrab()
     {
         
@@ -120,7 +116,7 @@ public class Apple_Apple : MonoBehaviour
             if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 16f)
             {
                 already_clicked = true;
-                Debug.Log("???????? ???????");
+                //Debug.Log("???????? ???????");
 
             }
         }
@@ -129,29 +125,11 @@ public class Apple_Apple : MonoBehaviour
         {
             if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 16f)
             {
-<<<<<<< HEAD
                 //Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition).x);
                 Vector2 Test = new Vector2(Mathf.Clamp(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, -16f, 16f), transform.position.y);
                 //Clamp ÇÔ¼öÀÇ ÃÖ¼Ò ÃÖ´ë °ª ¼öÁ¤ÇØ¼­ ÀÌ»óÇÏ°Ô µÉ ¼öµµ ÀÖÀ½ Ã¼Å©
                 //apple_rigid.transform.position = Vector2.Lerp(transform.position, Test, 20 * Time.deltaTime);
                 apple_rigid.MovePosition(Test); //¹º°¡ ÀÌ»óÇØ¿ä
-=======
-                Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition).x);
-                Vector2 Test = new Vector2(Mathf.Clamp(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, -9.6f, 9.6f), transform.position.y);
-                //x???? Æ¯Á¤ ??À§?? ???î³?? ?×´??? ?? ??À¸?? ???î³?? ?????? ??Á¤ ?? ???Ï±????? ?????Ïµ???
-                //???? ?Ì·??? ?????? ?? À§Ä¡?? ?Ù·? ?????Ìµ? ?Ø¹????? ?????? ?Ì·??Ô°? ?Æ´Ï¶? ?????? ?Ìµ??Ï´? ??Ã³?? ???Ìµ??? ?Ø¾???
-                transform.position = Vector2.Lerp(transform.position, Test, 20 * Time.deltaTime);
-                already_clicked = false;
-            }
-            if(already_clicked == true)
-            {
-                Debug.Log("?? ?Èµ???");
-                Vector2 Test = new Vector2(Mathf.Clamp(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, -9.6f, 9.6f), transform.position.y);
-                //x???? Æ¯Á¤ ??À§?? ???î³?? ?×´??? ?? ??À¸?? ???î³?? ?????? ??Á¤ ?? ???Ï±????? ?????Ïµ???
-                //Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition).x);
-                //???? ?Ì·??? ?????? ?? À§Ä¡?? ?Ù·? ?????Ìµ? ?Ø¹????? ?????? ?Ì·??Ô°? ?Æ´Ï¶? ?????? ?Ìµ??Ï´? ??Ã³?? ???Ìµ??? ?Ø¾???
-                transform.position = Vector2.Lerp(transform.position, Test, 20 * Time.deltaTime);
->>>>>>> main
                 already_clicked = false;
             }
             
@@ -174,8 +152,8 @@ public class Apple_Apple : MonoBehaviour
                 crash_obj.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
                 Vector3.Lerp(crash_obj.transform.position, middle_pos, 100* Time.deltaTime);
                 Vector3.Lerp(transform.position, middle_pos, 100 * Time.deltaTime);
-                aa += 2 * Time.deltaTime;
-                if(aa >=0.3f)//?à°?? ??????
+                TTime += 2 * Time.deltaTime;
+                if(TTime >=0.3f)//?à°?? ??????
                 {
                     //GameManager.Instance.AddAppleScore((int)A_S); 
                     Destroy(crash_obj.gameObject);
@@ -285,22 +263,9 @@ public class Apple_Apple : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
     public void Set_State_gameOver()
     {
         A_G_S = Apple_Grab_State.GameOver;
-=======
-    void DestroyAndScore(GameObject myApple)
-    {
-        if(G_S == null)
-        {
-            G_S = GetComponentInParent<Game_System>();
-        }
-        G_S.Get_Score(myApple.GetComponent<Apple_Apple>().Apple_Score);
-        Destroy(myApple);
-
-            
->>>>>>> main
     }
 
     //void Set_State_num()

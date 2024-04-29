@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< HEAD
   - Apple_1
   - Apple_2
   - Apple_3
@@ -15,18 +14,6 @@ TagManager:
   - Apple_8
   - RWall
   - LWall
-=======
-  - Apple_2
-  - Apple_4
-  - Apple_5
-  - Apple_3
-  - Apple_7
-  - Apple_1
-  - Apple_6
-  - Apple_8
-  - SideWall
-  - Floor
->>>>>>> main
   layers:
   - Default
   - TransparentFX
