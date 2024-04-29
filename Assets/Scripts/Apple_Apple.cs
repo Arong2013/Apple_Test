@@ -30,6 +30,10 @@ public class Apple_Apple : MonoBehaviour
     int Fever_Count = 0;
 
     float TTime =0;
+    float Left_Blocked ;
+    float Right_Blocked;
+
+
 
     public enum Apple_Grab_State
     { 
@@ -110,26 +114,25 @@ public class Apple_Apple : MonoBehaviour
 
     public void IsGrab()
     {
+        Left_Blocked = -21 + transform.localScale.x / 2;
+        Right_Blocked = 21 - transform.localScale.x / 2;
         
         if (Input.GetMouseButtonDown(0))
         {
-            if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 16f)
+            if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < Right_Blocked)
             {
                 already_clicked = true;
-                //Debug.Log("???????? ???????");
 
             }
         }
 
         if (Input.GetMouseButton(0))
         {
-            if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 16f)
+            if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < Right_Blocked)
             {
                 //Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition).x);
-                Vector2 Test = new Vector2(Mathf.Clamp(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, -16f, 16f), transform.position.y);
-                //Clamp ÇÔ¼öÀÇ ÃÖ¼Ò ÃÖ´ë °ª ¼öÁ¤ÇØ¼­ ÀÌ»óÇÏ°Ô µÉ ¼öµµ ÀÖÀ½ Ã¼Å©
-                //apple_rigid.transform.position = Vector2.Lerp(transform.position, Test, 20 * Time.deltaTime);
-                apple_rigid.MovePosition(Test); //¹º°¡ ÀÌ»óÇØ¿ä
+                Vector2 Test = new Vector2(Mathf.Clamp(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Left_Blocked, Right_Blocked), transform.position.y);
+                apple_rigid.MovePosition(Test);
                 already_clicked = false;
             }
             
@@ -145,7 +148,7 @@ public class Apple_Apple : MonoBehaviour
             {
                 if (Merge == false)
                 {
-                    middle_pos = new Vector3((crash_obj.transform.position.x + transform.position.x) / 2, (crash_obj.transform.position.y + transform.position.y) / 2 - 1, 0); //?ß½É°?À» ???Ø¼? ?Ö´??? ???? ?æµ???? ?Êµ???
+                    middle_pos = new Vector3((crash_obj.transform.position.x + transform.position.x) / 2, (crash_obj.transform.position.y + transform.position.y) / 2 - 1, 0);
                     Merge = true;
                 }
                 apple_rigid.constraints = RigidbodyConstraints2D.FreezePosition;

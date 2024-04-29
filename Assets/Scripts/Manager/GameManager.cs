@@ -34,7 +34,7 @@ public class GameManager : Singleton<GameManager>
     }
    */
     /// <summary>
-    /// ���� ���� �÷��ְ� ���� 
+    ///AddScore함수입니다
     /// </summary>
     public void AddScore(AppleObj _apple, Vector3 _pos)
     {
@@ -57,7 +57,6 @@ public class GameManager : Singleton<GameManager>
     public void AddFeverCount(int _fever)
     {
         Fever_count += _fever;
-        Debug.Log("Check");
     }
 
     public void FeverInitialize()
@@ -66,6 +65,6 @@ public class GameManager : Singleton<GameManager>
     }
     public void GameOver()
     {
-        rankSystem.GameOver(score);
+        //rankSystem.GameOver(score);
     }
 }

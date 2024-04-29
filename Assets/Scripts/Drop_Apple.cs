@@ -45,7 +45,7 @@ public class Drop_Apple : MonoBehaviour
         
         if (Input.GetMouseButtonUp(0))
         {
-            if(Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 16.5)
+            if(Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 21)
             {
                 //마우스 왼쪽 버튼을 누르고 들어올렸을 때 하위 오브젝트로 뒀던 사과 오브젝트를 시스템 오브젝트의 하위 오브젝트로 변경시킴
                 if (isApple == false)
