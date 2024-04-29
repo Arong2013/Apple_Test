@@ -32,7 +32,7 @@ public class RankSystem : MonoBehaviour
 
         WWWForm form = new WWWForm();
         form.AddField("order", "AddRank");
-        form.AddField("PlayerName",MainManager.Instance.PlayerName);
+        form.AddField("PlayerName","MainManager.Instance.PlayerName");
         form.AddField("Score", testString);
 
         StartCoroutine(RankUpData(form));
@@ -42,10 +42,31 @@ public class RankSystem : MonoBehaviour
     {
         using (UnityWebRequest www = UnityWebRequest.Post(RankURL, _form))
         {
-            yield return www.SendWebRequest();
-            if (www.isDone)
-                print(www.downloadHandler.text);        
+            yield return www.SendWebRequest();    
         }
+        UnityWebRequest www2 = UnityWebRequest.Get(RankUpdataURLs);
+        yield return www2.SendWebRequest();
+        string[] row = www2.downloadHandler.text.Split('\n');
+        int rowsize = row.Length;
+         var PlayersData = new List<PlayerInformation>();
+
+        for (int i = 0; i < rowsize; i++)
+        {
+            string[] column = row[i].Split('\t');
+            PlayersData.Add(new PlayerInformation(System.Convert.ToInt32(column[0]),column[1]));
+        }
+
+        var RankList = PlayersData.OrderByDescending(player => player.Score).ToList();
+        var list = new List<PlayerInformation>();
+        for (var i = 0; i < 5; i++)
+            list.Add(RankList[i]);
+        var nameList = new List<string>();
+        
+        UIManager.Instance.RankUI.GetComponent<RankUI>().Init(list);
+    }
+
+    public IEnumerator StartPlayGame()
+    {
         UnityWebRequest www2 = UnityWebRequest.Get(RankUpdataURLs);
         yield return www2.SendWebRequest();
         string[] row = www2.downloadHandler.text.Split('\n');

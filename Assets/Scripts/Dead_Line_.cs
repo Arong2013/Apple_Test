@@ -32,12 +32,11 @@ public class Dead_Line_ : MonoBehaviour
         TTime += Time.deltaTime;
         if(TTime >2f)
         {
-            Debug.Log("°ÔÀÓ¿À¹ö");
-            GameManager.Instance.GameOver();
-            //Destroy(this.gameObject);
+           // GameManager.Instance.GameOver();
+            Destroy(gameObject);
             GS.Game_is_Over();
         }
-        //´êÀº ÇØ´ç ¿ÀºêÁ§Æ®µµ »öº¯È­ ½ÃÄÑÁÖ´Â ½ºÅ©¸³Æ®
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ®
     }
     private void OnTriggerExit2D(Collider2D collision)
     {

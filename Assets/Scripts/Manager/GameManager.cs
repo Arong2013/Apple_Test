@@ -17,7 +17,9 @@ public class GameManager : Singleton<GameManager>
 
     public void Start()
     {
-        rankSystem = GetComponent<RankSystem>();    
+        rankSystem = GetComponent<RankSystem>();
+
+       // StartCoroutine(rankSystem.StartPlayGame());  
 
        // GameObject apple = Instantiate(NextApple().gameObject, AppleDropTransform.transform.position, Quaternion.identity);
        // cunObj = apple.GetComponent<AppleObj>();
@@ -65,6 +67,6 @@ public class GameManager : Singleton<GameManager>
     }
     public void GameOver()
     {
-        //rankSystem.GameOver(score);
+        rankSystem.GameOver(score);
     }
 }

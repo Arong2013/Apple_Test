@@ -15,6 +15,10 @@ public class RankUI : MonoBehaviour
     {
         
     }
+
+    private void Start() {
+        
+    }
     public void Init(List<PlayerInformation> _list)
     {
         rank = _list;

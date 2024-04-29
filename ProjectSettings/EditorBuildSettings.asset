@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Play_Scene.unity
     guid: 55ed258d4f8932b4aa728be0c9ae41b2
+  - enabled: 1
+    path: Assets/Scenes/Pixel_Modifying_Play_Scene.unity
+    guid: 8c681c8c0abacb045bc2671a9bd427f6
   m_configObjects: {}
