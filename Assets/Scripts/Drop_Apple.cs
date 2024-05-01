@@ -14,7 +14,7 @@ public class Drop_Apple : MonoBehaviour
 
     Show_Next_Apple S_N_A;
 
-    bool already_clicked = false;
+    bool isclicked = false;
     bool isApple = false;
     bool DoRandom = true;
     int rand_num;
@@ -32,6 +32,11 @@ public class Drop_Apple : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Time.timeScale ==0)
+        {
+            isclicked = false;
+        }
+
         if(G_S.G_S == Game_System.Game_State.Game_Start || G_S.G_S == Game_System.Game_State.Fever_Time && Time.timeScale != 0) //메인메뉴 열려있는 동안 해당 스크립트가 동작하지 않도록
         {
             IsApple_Grab();
@@ -41,9 +46,12 @@ public class Drop_Apple : MonoBehaviour
 
     void IsApple_Grab()
     {
-        
-        
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonDown(0))
+        {
+            isclicked = true;
+        }
+
+        if (Input.GetMouseButtonUp(0) && isclicked == true)
         {
             if(Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 21)
             {
@@ -56,7 +64,7 @@ public class Drop_Apple : MonoBehaviour
                 {
                     transform.GetChild(0).parent = System.transform;
                 }
-                //already_clicked = false;
+                isclicked = false;
             }
       
 

@@ -70,7 +70,7 @@ public class UIManager : Singleton<UIManager>
 
     public void Restart()
     {
-        SceneManager.LoadScene("Main_Scene");
+        SceneManager.LoadScene("Pixel_Modifying_Play_Scene");
         Time.timeScale = 1;
     }
 
