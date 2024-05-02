@@ -68,11 +68,6 @@ public class UIManager : Singleton<UIManager>
     }
 
 
-    public void Restart()
-    {
-        SceneManager.LoadScene("Pixel_Modifying_Play_Scene");
-        Time.timeScale = 1;
-    }
 
     public void GoTitle()
     {
