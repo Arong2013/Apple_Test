@@ -23,7 +23,11 @@ public class Trigger_check : MonoBehaviour
         TTime += Time.deltaTime;
         if(TTime > 3f)
         {
-            Dead_Line.SetActive(true);
+            if(Dead_Line.gameObject != null)
+            {
+                Dead_Line.SetActive(true);
+            }
+            
         }
         
     }
@@ -31,7 +35,11 @@ public class Trigger_check : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         TTime = 0f;
-        Dead_Line.SetActive(false);
+        if (Dead_Line.gameObject != null)
+        {
+            Dead_Line.SetActive(false);
+        }
+        
     }
 
 
