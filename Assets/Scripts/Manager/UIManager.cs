@@ -64,16 +64,19 @@ public class UIManager : Singleton<UIManager>
         else
         {
             System.G_S |= Game_System.Game_State.Fever_Time;
+
         }
     }
 
 
     public void Restart()
     {
+        Destroy(UIManager.Instance.gameObject);
+        Destroy(this.gameObject);
         SceneManager.LoadScene("Pixel_Modifying_Play_Scene");
         Time.timeScale = 1;
     }
-
+    
     public void GoTitle()
     {
         SceneManager.LoadScene("Title_Scene");
