@@ -16,6 +16,8 @@ public class UIManager : Singleton<UIManager>
     public Button Retry;
     public Button Quit;
     public Image Fever;
+    public GameObject Best_Score;
+
     string Name;
 
     [SerializeField] GameObject EscUI;
