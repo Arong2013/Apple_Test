@@ -10,13 +10,24 @@ public class Credits : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI textMeshProUGUI;
 
-    void Start()
+
+    [SerializeField]  Vector3 startPos;
+
+    private void Start() {
+        startPos = textMeshProUGUI.transform.position;        
+    }
+    private void OnEnable() 
     {
-        // 텍스트를 Z축 기준으로 기울입니다.
+        
+        textMeshProUGUI.transform.position = startPos;
         textMeshProUGUI.transform.rotation = Quaternion.Euler(new Vector3(angle, 0, 0));
 
-        // 텍스트를 화면 하단에서 시작해서 위로 이동하도록 애니메이션 설정
         Vector3 endPosition = textMeshProUGUI.transform.position + new Vector3(0, 100, 0); // 100은 원하는 높이에 따라 조정 가능
         textMeshProUGUI.transform.DOMove(endPosition, duration).SetEase(Ease.Linear);
+    }
+
+    private void OnDisable() 
+    {
+        textMeshProUGUI.transform.DOKill();
     }
 }

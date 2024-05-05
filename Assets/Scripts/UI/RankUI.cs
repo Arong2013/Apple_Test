@@ -11,14 +11,6 @@ public class RankUI : MonoBehaviour
 
     [SerializeField] Sprite GoldMd,SilverMd,BronzeMd;
     List<PlayerInformation> rank;
-    public void OnEnable()
-    {
-        
-    }
-
-    private void Start() {
-        
-    }
     public void Init(List<PlayerInformation> _list)
     {
         rank = _list;

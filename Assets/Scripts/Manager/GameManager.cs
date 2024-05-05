@@ -2,6 +2,7 @@ using AYellowpaper.SerializedCollections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -9,20 +10,19 @@ public class GameManager : Singleton<GameManager>
     RankSystem rankSystem;
     [SerializeField] Transform AppleDropTransform;
 
-   
+
     [SerializeField] int score = 0; public int Score => score;
     [SerializeField] int Fever_count = 0; public int Fever => Fever_count;
     private AppleObj cunObj; public AppleObj CunObj => cunObj;
-   
+
 
     public void Start()
     {
         rankSystem = GetComponent<RankSystem>();
 
-       // StartCoroutine(rankSystem.StartPlayGame());  
-
-       // GameObject apple = Instantiate(NextApple().gameObject, AppleDropTransform.transform.position, Quaternion.identity);
-       // cunObj = apple.GetComponent<AppleObj>();
+         StartCoroutine(rankSystem.StartPlayGame());  
+        // GameObject apple = Instantiate(NextApple().gameObject, AppleDropTransform.transform.position, Quaternion.identity);
+        // cunObj = apple.GetComponent<AppleObj>();
     }
     /*
     public void Update()
@@ -50,7 +50,7 @@ public class GameManager : Singleton<GameManager>
         var apple = NextAppleData.Keys.First(x => x >= randcount);
         return NextAppleData[apple];
     }
-   
+
     public void AddAppleScore(int _score)
     {
         score += _score;
@@ -63,10 +63,19 @@ public class GameManager : Singleton<GameManager>
 
     public void FeverInitialize()
     {
-        Fever_count =0;
+        Fever_count = 0;
     }
     public void GameOver()
     {
         rankSystem.GameOver(score);
     }
+
+    public void Restart()
+    {
+        Destroy(UIManager.Instance.gameObject);
+        Destroy(this.gameObject);
+        SceneManager.LoadScene("Pixel_Modifying_Play_Scene");
+        Time.timeScale = 1;
+    }
+
 }

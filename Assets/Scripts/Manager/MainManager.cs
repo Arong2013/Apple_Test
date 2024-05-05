@@ -9,6 +9,8 @@ public class MainManager : Singleton<MainManager>
     public void GoToPlayScene(string _name)
     {
         playerName = _name;
+        Destroy(UIManager.Instance);
+        Destroy(GameManager.Instance);
         SceneManager.LoadScene("Pixel_Modifying_Play_Scene");
     }
 }
