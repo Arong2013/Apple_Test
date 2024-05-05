@@ -11,11 +11,15 @@ public class Credits : MonoBehaviour
     [SerializeField] TextMeshProUGUI textMeshProUGUI;
 
 
-    Vector3 startPos;
+    [SerializeField]  Vector3 startPos;
+
+    private void Start() {
+        startPos = textMeshProUGUI.transform.position;        
+    }
     private void OnEnable() 
     {
-        startPos = textMeshProUGUI.transform.position;
-
+        
+        textMeshProUGUI.transform.position = startPos;
         textMeshProUGUI.transform.rotation = Quaternion.Euler(new Vector3(angle, 0, 0));
 
         Vector3 endPosition = textMeshProUGUI.transform.position + new Vector3(0, 100, 0); // 100은 원하는 높이에 따라 조정 가능
@@ -24,6 +28,6 @@ public class Credits : MonoBehaviour
 
     private void OnDisable() 
     {
-        textMeshProUGUI.transform.position = startPos;
+        textMeshProUGUI.transform.DOKill();
     }
 }

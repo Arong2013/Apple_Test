@@ -21,7 +21,6 @@ public class GameManager : Singleton<GameManager>
         rankSystem = GetComponent<RankSystem>();
 
          StartCoroutine(rankSystem.StartPlayGame());  
-
         // GameObject apple = Instantiate(NextApple().gameObject, AppleDropTransform.transform.position, Quaternion.identity);
         // cunObj = apple.GetComponent<AppleObj>();
     }

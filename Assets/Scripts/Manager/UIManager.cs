@@ -21,7 +21,7 @@ public class UIManager : Singleton<UIManager>
     string Name;
 
     [SerializeField] GameObject EscUI;
-    [SerializeField] GameObject rankUI; public GameObject RankUI => rankUI; 
+    [SerializeField] GameObject rankUI; public GameObject RankUI => rankUI;
 
     public void Start()
     {
@@ -30,22 +30,26 @@ public class UIManager : Singleton<UIManager>
 
     public void Update()
     {
-        Score.text =  "현재 점수\n" + GameManager.Instance.Score.ToString();
-        Score_GameOver.text = GameManager.Instance.Score.ToString() + " " + Name; // + �߰��� �������� �־������
-        if(System.G_S != Game_System.Game_State.Fever_Time)
+        if (SceneManager.GetActiveScene().name == "Pixel_Modifying_Play_Scene")
         {
-            Fever_Fill(); //�ǹ�Ÿ���϶� ���� ��ȭ ����
+            Score.text = "현재 점수\n" + GameManager.Instance.Score.ToString();
+            Score_GameOver.text = GameManager.Instance.Score.ToString() + " " + Name; // + �߰��� �������� �־������
+            if (System.G_S != Game_System.Game_State.Fever_Time)
+            {
+                Fever_Fill(); //�ǹ�Ÿ���϶� ���� ��ȭ ����
+            }
+
+
+
+
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                MainMenu.SetActive(true);
+                Time.timeScale = 0;
+            }
         }
-        
 
-
-
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            MainMenu.SetActive(true);
-            Time.timeScale = 0;
-        }
     }
 
     public void Quit_Menu()
@@ -73,12 +77,12 @@ public class UIManager : Singleton<UIManager>
 
     public void Restart()
     {
-        Destroy(UIManager.Instance.gameObject);
+        Destroy(GameManager.Instance.gameObject);
         Destroy(this.gameObject);
         SceneManager.LoadScene("Pixel_Modifying_Play_Scene");
         Time.timeScale = 1;
     }
-    
+
     public void GoTitle()
     {
         SceneManager.LoadScene("Title_Scene");

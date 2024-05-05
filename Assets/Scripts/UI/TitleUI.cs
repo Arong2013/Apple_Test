@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,11 +7,11 @@ using UnityEngine.UI;
 
 public class TitleUI : MonoBehaviour
 {
-    [SerializeField] Button startBtn, CreditBtn;
+    [SerializeField] Button startBtn, CreditBtn, RankBtn;
 
     [SerializeField] TextMeshProUGUI inputField;
 
-    [SerializeField] GameObject Credit;
+    [SerializeField] GameObject Credit, RankUI;
 
 
 
@@ -18,7 +19,7 @@ public class TitleUI : MonoBehaviour
     {
         startBtn.onClick.AddListener(() =>
         {
-            if (inputField.text != "")
+            if (!String.IsNullOrEmpty(inputField.text))
                 MainManager.Instance.GoToPlayScene(inputField.text);
             else
             {
@@ -31,9 +32,16 @@ public class TitleUI : MonoBehaviour
         Credit.SetActive(false);
     else
         Credit.SetActive(true);
-
 });
 
-    }
+    RankBtn.onClick.AddListener(() =>
+     {
+    if (RankUI.gameObject.activeSelf)
+        RankUI.SetActive(false);
+    else
+        RankUI.SetActive(true);
+    });
+    
+}
 }
 

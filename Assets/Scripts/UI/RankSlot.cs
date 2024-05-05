@@ -12,6 +12,10 @@ public class RankSlot : MonoBehaviour
     {
         if(icon)
             _icon.sprite= icon; 
+            else
+            {
+                Destroy(_icon);
+            }
         _score.text = Score.ToString();    
         _name.text = name.ToString();  
     }
