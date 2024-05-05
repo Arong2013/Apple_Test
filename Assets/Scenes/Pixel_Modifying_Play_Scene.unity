@@ -309,7 +309,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -68.5}
+  m_AnchoredPosition: {x: -1, y: -46.4}
   m_SizeDelta: {x: 50, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &14349172
@@ -359,8 +359,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 5
+  m_fontSizeBase: 5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2175,7 +2175,7 @@ GameObject:
   - component: {fileID: 563552006}
   - component: {fileID: 563552005}
   m_Layer: 5
-  m_Name: Retry_btn
+  m_Name: Retry_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2198,8 +2198,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 120.9, y: -135.5}
-  m_SizeDelta: {x: 54, y: 57}
+  m_AnchoredPosition: {x: 128.9, y: -135.5}
+  m_SizeDelta: {x: 48, y: 34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &563552005
 MonoBehaviour:
@@ -4003,7 +4003,7 @@ GameObject:
   - component: {fileID: 832877724}
   - component: {fileID: 832877723}
   m_Layer: 5
-  m_Name: Menu_Quit
+  m_Name: Menu_Quit_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4793,7 +4793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2358084253157651106, guid: 719a2bcdd8eabe440afac371504e6b0f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 46
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 2358084253157651106, guid: 719a2bcdd8eabe440afac371504e6b0f, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -6157,7 +6157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -37.1}
+  m_AnchoredPosition: {x: 0, y: -25.3}
   m_SizeDelta: {x: 50, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1175567536
@@ -6207,8 +6207,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 5
+  m_fontSizeBase: 5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6648,7 +6648,7 @@ GameObject:
   - component: {fileID: 1405599305}
   - component: {fileID: 1405599304}
   m_Layer: 5
-  m_Name: "Go_Titile(\uC544\uC9C1 \uC218\uC815 \uC548\uD568)"
+  m_Name: Go_Titie_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6671,8 +6671,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -168.7, y: -135.5}
-  m_SizeDelta: {x: 48, y: 34}
+  m_AnchoredPosition: {x: -130, y: -135.5}
+  m_SizeDelta: {x: 30, y: 21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1405599304
 MonoBehaviour:
@@ -6720,7 +6720,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2043172861}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: Game_Quit
+        m_MethodName: GoTitle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6745,12 +6745,12 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 12, y: 3, z: 12, w: 3}
+  m_RaycastPadding: {x: 6, y: 3, z: 6, w: 3}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 186b94b131c3be74fa59fafc1637b2f0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a1649a901ca1b044989acff2f3e32497, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9719,7 +9719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2358084253157651106, guid: 719a2bcdd8eabe440afac371504e6b0f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 46
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 2358084253157651106, guid: 719a2bcdd8eabe440afac371504e6b0f, type: 3}
       propertyPath: m_AnchoredPosition.y
