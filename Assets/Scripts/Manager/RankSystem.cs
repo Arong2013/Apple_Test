@@ -63,6 +63,7 @@ public class RankSystem : MonoBehaviour
         var nameList = new List<string>();
         
         UIManager.Instance.RankUI.GetComponent<RankUI>().Init(list);
+        UIManager.Instance.Best_Score.GetComponent<GetBestScore>().Init(list);
     }
 
     public IEnumerator StartPlayGame()

@@ -14,6 +14,8 @@ TagManager:
   - Apple_8
   - RWall
   - LWall
+  - Effect_Merge
+  - Effect_Destroy
   layers:
   - Default
   - TransparentFX
