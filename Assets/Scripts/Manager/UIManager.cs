@@ -34,14 +34,10 @@ public class UIManager : Singleton<UIManager>
         {
             Score.text = "현재 점수\n" + GameManager.Instance.Score.ToString();
             Score_GameOver.text = GameManager.Instance.Score.ToString() + " " + Name; // + �߰��� �������� �־������
-            if (System.G_S != Game_System.Game_State.Fever_Time)
+            if (System.G_S == Game_System.Game_State.Game_Start)
             {
                 Fever_Fill(); //�ǹ�Ÿ���϶� ���� ��ȭ ����
             }
-
-
-
-
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -91,6 +87,8 @@ public class UIManager : Singleton<UIManager>
 
     public void GoTitle()
     {
+         Destroy(GameManager.Instance.gameObject);
+        Destroy(this.gameObject);
         SoundManager.Instance.ClickSound();
         SceneManager.LoadScene("Title_Scene");
         Time.timeScale = 1;

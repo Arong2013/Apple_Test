@@ -26,22 +26,22 @@ public class Drop_Apple : MonoBehaviour
         Instantiate(Apple[0], transform).transform.parent = transform;
         Walls_X[0] = G_S.Set_Wall_X_pos();
         Walls_X[1] = -Walls_X[0];
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Time.timeScale ==0)
+        if (Time.timeScale == 0)
         {
             isclicked = false;
         }
 
-        if(G_S.G_S == Game_System.Game_State.Game_Start || G_S.G_S == Game_System.Game_State.Fever_Time && Time.timeScale != 0) //¸ÞÀÎ¸Þ´º ¿­·ÁÀÖ´Â µ¿¾È ÇØ´ç ½ºÅ©¸³Æ®°¡ µ¿ÀÛÇÏÁö ¾Êµµ·Ï
+        if (G_S.G_S == Game_System.Game_State.Game_Start || G_S.G_S == Game_System.Game_State.Fever_Time && Time.timeScale != 0) //ï¿½ï¿½ï¿½Î¸Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½
         {
             IsApple_Grab();
         }
-        
+
     }
 
     void IsApple_Grab()
@@ -49,52 +49,52 @@ public class Drop_Apple : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             isclicked = true;
+
+
         }
 
         if (Input.GetMouseButtonUp(0) && isclicked == true)
         {
-            if(Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 21)
+            if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 21)
             {
-                //¸¶¿ì½º ¿ÞÂÊ ¹öÆ°À» ´©¸£°í µé¾î¿Ã·ÈÀ» ¶§ ÇÏÀ§ ¿ÀºêÁ§Æ®·Î µ×´ø »ç°ú ¿ÀºêÁ§Æ®¸¦ ½Ã½ºÅÛ ¿ÀºêÁ§Æ®ÀÇ ÇÏÀ§ ¿ÀºêÁ§Æ®·Î º¯°æ½ÃÅ´
+                //ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½×´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Å´
                 if (isApple == false)
                 {
-                    isApple = true; //ÇÏÀ§ ¿ÀºêÁ§Æ®°¡ »ç°ú ¿ÀºêÁ§Æ®°¡ ³Ñ°ÜÁáÀ¸¹Ç·Î ±×°É Ã¼Å©ÇÏ±âÀ§ÇØ »ç¿ëÇÑ isAppleÀ» true½ÃÅ´
+
+                    isApple = true; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½×°ï¿½ Ã¼Å©ï¿½Ï±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ isAppleï¿½ï¿½ trueï¿½ï¿½Å´
                 }
                 if (transform.childCount > 0)
                 {
                     transform.GetChild(0).parent = System.transform;
                 }
                 isclicked = false;
-            }
-      
 
+
+            }
 
         }
 
 
-        if (isApple == true) //2.5ÃÊÈÄ »ç°ú ¿ÀºêÁ§Æ®¸¦ ÀÚ½ÅÀÇ ÇÏÀ§ ¿ÀºêÁ§Æ®¿¡ »ý¼º½ÃÅ´
+        if (isApple == true) //2.5ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å´
         {
 
             ttime += Time.deltaTime;
-            if(DoRandom == true)
-            {
-                Setting_random();
-                //Debug.Log(rand_num);
-                DoRandom = false;
-            }
-            if(ttime >= 0.5f)
-            {
-                //½ºÇÁ¶óÀÌÆ®¸¦ ³Ö¾îÁÜ
-                next_Apple.SetActive(true);
-            }
 
-            if (ttime >= 2.5f)
+            if (ttime >= 0.5f)
             {
                 Choose_Apple(rand_num);
                 next_Apple.SetActive(false);
                 isApple = false;
                 DoRandom = true;
                 ttime = 0f;
+
+                if (DoRandom == true)
+                {
+                    Setting_random();
+                    //Debug.Log(rand_num);
+                    DoRandom = false;
+                    next_Apple.SetActive(true);
+                }
             }
         }
     }
@@ -105,14 +105,14 @@ public class Drop_Apple : MonoBehaviour
         {
             case >= 6:
                 {
-                    
+
                     Instantiate(Apple[r_num], transform).transform.parent = transform;
                     break;
                 }
 
             default:
                 {
-                    
+
                     Instantiate(Apple[r_num], transform).transform.parent = transform;
                 }
                 break;
@@ -150,10 +150,10 @@ public class Drop_Apple : MonoBehaviour
 //{
 //    if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 15)
 //    {
-//        //¸¶¿ì½º ¿ÞÂÊ ¹öÆ°À» ´©¸£°í µé¾î¿Ã·ÈÀ» ¶§ ÇÏÀ§ ¿ÀºêÁ§Æ®·Î µ×´ø »ç°ú ¿ÀºêÁ§Æ®¸¦ ½Ã½ºÅÛ ¿ÀºêÁ§Æ®ÀÇ ÇÏÀ§ ¿ÀºêÁ§Æ®·Î º¯°æ½ÃÅ´
+//        //ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½×´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Å´
 //        if (isApple == false)
 //        {
-//            isApple = true; //ÇÏÀ§ ¿ÀºêÁ§Æ®°¡ »ç°ú ¿ÀºêÁ§Æ®°¡ ³Ñ°ÜÁáÀ¸¹Ç·Î ±×°É Ã¼Å©ÇÏ±âÀ§ÇØ »ç¿ëÇÑ isAppleÀ» true½ÃÅ´
+//            isApple = true; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½×°ï¿½ Ã¼Å©ï¿½Ï±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ isAppleï¿½ï¿½ trueï¿½ï¿½Å´
 //        }
 //        if (transform.childCount > 0)
 //        {
@@ -163,11 +163,11 @@ public class Drop_Apple : MonoBehaviour
 //    }
 //            //else if(already_clicked == true)
 //            //{
-//            //    Debug.Log("ÀÌ¹Ì Å¬¸¯Çß¾úÀ½");
-//            //    //¸¶¿ì½º ¿ÞÂÊ ¹öÆ°À» ´©¸£°í µé¾î¿Ã·ÈÀ» ¶§ ÇÏÀ§ ¿ÀºêÁ§Æ®·Î µ×´ø »ç°ú ¿ÀºêÁ§Æ®¸¦ ½Ã½ºÅÛ ¿ÀºêÁ§Æ®ÀÇ ÇÏÀ§ ¿ÀºêÁ§Æ®·Î º¯°æ½ÃÅ´
+//            //    Debug.Log("ï¿½Ì¹ï¿½ Å¬ï¿½ï¿½ï¿½ß¾ï¿½ï¿½ï¿½");
+//            //    //ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½×´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Å´
 //            //    if (isApple == false)
 //            //    {
-//            //        isApple = true; //ÇÏÀ§ ¿ÀºêÁ§Æ®°¡ »ç°ú ¿ÀºêÁ§Æ®°¡ ³Ñ°ÜÁáÀ¸¹Ç·Î ±×°É Ã¼Å©ÇÏ±âÀ§ÇØ »ç¿ëÇÑ isAppleÀ» true½ÃÅ´
+//            //        isApple = true; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½×°ï¿½ Ã¼Å©ï¿½Ï±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ isAppleï¿½ï¿½ trueï¿½ï¿½Å´
 //            //    }
 //            //    if (transform.childCount > 0)
 //            //    {
