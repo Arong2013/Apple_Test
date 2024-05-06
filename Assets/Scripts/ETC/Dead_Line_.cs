@@ -29,16 +29,16 @@ public class Dead_Line_ : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.transform.parent.name == "System")
-        {
-            TTime += Time.deltaTime;
-            if (TTime > 2f)
-            {
-                // GameManager.Instance.GameOver();
-                Destroy(gameObject);
-                GS.Game_is_Over();
-            }
-        }
+        //if (collision.transform.parent.name == "System")
+        //{
+        //    TTime += Time.deltaTime;
+        //    if (TTime > 2f)
+        //    {
+        //        // GameManager.Instance.GameOver();
+        //        Destroy(gameObject);
+        //        GS.Game_is_Over();
+        //    }
+        //}
             
     }
     private void OnTriggerExit2D(Collider2D collision)

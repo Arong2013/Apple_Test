@@ -30,7 +30,8 @@ public class Apple_Apple : MonoBehaviour
     int Fever_Count = 0;
 
     float TTime =0;
-    float Left_Blocked ;
+    float FinishTime = 0;
+    float Left_Blocked;
     float Right_Blocked;
 
 
@@ -143,8 +144,13 @@ public class Apple_Apple : MonoBehaviour
     void Apple_Contact(GameObject crash_obj)
     {
         if(crash == true)
-        {   
-            if(crash_obj.GetComponent<Apple_Apple>().Crash_Obj == gameObject)
+        {
+            if (crash_obj == null)
+            {
+                crash = false;
+            }
+
+            if (crash_obj.GetComponent<Apple_Apple>().Crash_Obj == gameObject)
             {
                 if ((transform.position.y == crash_obj.transform.position.y && transform.position.x < crash_obj.transform.position.x)
                 || transform.position.y > crash_obj.transform.position.y)
@@ -186,10 +192,7 @@ public class Apple_Apple : MonoBehaviour
                 }
             }
 
-            if(crash_obj == null)
-            {
-                crash = false;
-            }
+            
 
 
             
@@ -214,6 +217,32 @@ public class Apple_Apple : MonoBehaviour
             //이동하는 함수를 잠시 멈춤
         }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Finish"))
+        {
+            FinishTime += Time.deltaTime;
+
+            if (FinishTime > 2.5f)
+            {
+                G_S.Game_is_Over();
+
+            }
+
+
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Finish"))
+        {
+            FinishTime = 0;
+        }
+    }
+
+
 
     void CheckState()
     {

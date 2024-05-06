@@ -23,7 +23,7 @@ public class Trigger_check : MonoBehaviour
         if(collision.transform.parent.name == "System")
         {
             TTime += Time.deltaTime;
-            if (TTime > 3f)
+            if (TTime > 1f)
             {
                 if (Dead_Line.gameObject != null)
                 {
@@ -31,12 +31,14 @@ public class Trigger_check : MonoBehaviour
                 }
 
             }
+
+            
         }
-        
-        
+
+
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision) //이렇게가 아니라 다른 방법으로 나갔다는 것을 확인 시켜줘야 할 것 같음
     {
         if (collision.transform.parent.name == "System")
         {
