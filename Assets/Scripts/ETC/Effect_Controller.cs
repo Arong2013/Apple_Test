@@ -30,7 +30,7 @@ public class Effect_Controller : MonoBehaviour
     void Update()
     {
         TTime += Time.deltaTime;
-        if(TTime >1f)
+        if(TTime >0.5f)
         {
             Destroy(gameObject);
         }

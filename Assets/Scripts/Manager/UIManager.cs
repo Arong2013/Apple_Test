@@ -45,8 +45,12 @@ public class UIManager : Singleton<UIManager>
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                MainMenu.SetActive(true);
-                Time.timeScale = 0;
+                if (MainMenu.activeSelf == false)
+                {
+                    SoundManager.Instance.ClickSound();
+                    MainMenu.SetActive(true);
+                    Time.timeScale = 0;
+                }
             }
         }
 
@@ -54,6 +58,7 @@ public class UIManager : Singleton<UIManager>
 
     public void Quit_Menu()
     {
+        SoundManager.Instance.ClickSound();
         MainMenu.SetActive(false);
         Time.timeScale = 1;
     }
@@ -77,6 +82,7 @@ public class UIManager : Singleton<UIManager>
 
     public void Restart()
     {
+        SoundManager.Instance.ClickSound();
         Destroy(GameManager.Instance.gameObject);
         Destroy(this.gameObject);
         SceneManager.LoadScene("Pixel_Modifying_Play_Scene");
@@ -85,13 +91,17 @@ public class UIManager : Singleton<UIManager>
 
     public void GoTitle()
     {
+        SoundManager.Instance.ClickSound();
         SceneManager.LoadScene("Title_Scene");
+        Time.timeScale = 1;
     }
 
 
     public void Game_Quit()
     {
+        SoundManager.Instance.ClickSound();
         Application.Quit();
+        Time.timeScale = 1;
     }
 
 }

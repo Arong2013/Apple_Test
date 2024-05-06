@@ -153,7 +153,7 @@ public class Game_System : MonoBehaviour
 
             for (int i = 0; i < count; i++)
             {
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(0.5f);
                 Vector2 Destroy_Pos = new Vector2(transform.GetChild(0).transform.position.x, transform.GetChild(0).transform.position.y);
                 Instantiate(Destroy_EF, Destroy_Pos, Quaternion.identity).transform.parent = null;
                 Destroy(transform.GetChild(0).gameObject);

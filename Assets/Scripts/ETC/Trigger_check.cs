@@ -20,26 +20,32 @@ public class Trigger_check : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        TTime += Time.deltaTime;
-        if(TTime > 3f)
+        if(collision.transform.parent.name == "System")
         {
-            if(Dead_Line.gameObject != null)
+            TTime += Time.deltaTime;
+            if (TTime > 3f)
             {
-                Dead_Line.SetActive(true);
+                if (Dead_Line.gameObject != null)
+                {
+                    Dead_Line.SetActive(true);
+                }
+
             }
-            
         }
+        
         
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        TTime = 0f;
-        if (Dead_Line.gameObject != null)
+        if (collision.transform.parent.name == "System")
         {
-            Dead_Line.SetActive(false);
+            TTime = 0f;
+            if (Dead_Line.gameObject != null)
+            {
+                Dead_Line.SetActive(false);
+            }
         }
-        
     }
 
 

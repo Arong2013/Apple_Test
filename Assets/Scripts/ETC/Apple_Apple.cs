@@ -143,44 +143,56 @@ public class Apple_Apple : MonoBehaviour
     void Apple_Contact(GameObject crash_obj)
     {
         if(crash == true)
-        {
-            if(transform.position.x < crash_obj.transform.position.x || transform.position.y < crash_obj.transform.position.y)
+        {   
+            if(crash_obj.GetComponent<Apple_Apple>().Crash_Obj == gameObject)
             {
-                if (Merge == false)
+                if ((transform.position.y == crash_obj.transform.position.y && transform.position.x < crash_obj.transform.position.x)
+                || transform.position.y > crash_obj.transform.position.y)
                 {
-                    middle_pos = new Vector3((crash_obj.transform.position.x + transform.position.x) / 2, (crash_obj.transform.position.y + transform.position.y) / 2 - 1, 0);
-                    Merge = true;
-                }
-                apple_rigid.constraints = RigidbodyConstraints2D.FreezePosition;
-                crash_obj.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
-                Vector3.Lerp(crash_obj.transform.position, middle_pos, 100* Time.deltaTime);
-                Vector3.Lerp(transform.position, middle_pos, 100 * Time.deltaTime);
-                TTime += 2 * Time.deltaTime;
-                if(TTime >=0.3f)//?à°?? ??????
-                {
-                    //GameManager.Instance.AddAppleScore((int)A_S); 
-                    Destroy(crash_obj.gameObject);
-                    Instantiate(next_Apple, middle_pos, Quaternion.identity, transform.parent);
-                    //GameManager.Instance.AddAppleScore((int)A_S);
-                    if(G_S.G_S != Game_System.Game_State.Fever_Time)
+                    if (Merge == false)
                     {
-                        GameManager.Instance.AddAppleScore((int)A_S * 2);
-                        GameManager.Instance.AddFeverCount(Fever_Count);
-                        
+                        middle_pos = new Vector3((crash_obj.transform.position.x + transform.position.x) / 2, (crash_obj.transform.position.y + transform.position.y) / 2 - 1, 0);
+                        Merge = true;
                     }
-                    else
+                    apple_rigid.constraints = RigidbodyConstraints2D.FreezePosition;
+                    crash_obj.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+                    Vector3.Lerp(crash_obj.transform.position, middle_pos, 100 * Time.deltaTime);
+                    Vector3.Lerp(transform.position, middle_pos, 100 * Time.deltaTime);
+                    TTime += 2 * Time.deltaTime;
+                    if (TTime >= 0.3f)//?à°?? ??????
                     {
-                        GameManager.Instance.AddAppleScore((int)A_S*4);
+                        //GameManager.Instance.AddAppleScore((int)A_S); 
+                        Destroy(crash_obj.gameObject);
+                        Instantiate(next_Apple, middle_pos, Quaternion.identity, transform.parent);
+                        //GameManager.Instance.AddAppleScore((int)A_S);
+                        if (G_S.G_S != Game_System.Game_State.Fever_Time)
+                        {
+                            GameManager.Instance.AddAppleScore((int)A_S * 2);
+                            GameManager.Instance.AddFeverCount(Fever_Count);
+
+                        }
+                        else
+                        {
+                            GameManager.Instance.AddAppleScore((int)A_S * 4);
+                        }
+
+                        Destroy(this.gameObject);
+
+
+
+                        crash = false;
                     }
-                    
-                    Destroy(this.gameObject);
 
-
-
-                    crash = false;
                 }
-                
             }
+
+            if(crash_obj == null)
+            {
+                crash = false;
+            }
+
+
+            
         }
     }
 

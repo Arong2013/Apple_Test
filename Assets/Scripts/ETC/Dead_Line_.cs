@@ -16,7 +16,7 @@ public class Dead_Line_ : MonoBehaviour
         Death_L = GetComponent<LineRenderer>();
         for(int i=0; i<2; i++)
         {
-            Walls_pos[i] = new Vector3(Walls[i].position.x,transform.position.y,transform.position.z);
+            Walls_pos[i] = new Vector3(Walls[i].position.x,24,transform.position.z);
         }
         Death_L.SetPositions(Walls_pos);
     }
@@ -29,14 +29,17 @@ public class Dead_Line_ : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        TTime += Time.deltaTime;
-        if(TTime >2f)
+        if (collision.transform.parent.name == "System")
         {
-           // GameManager.Instance.GameOver();
-            Destroy(gameObject);
-            GS.Game_is_Over();
+            TTime += Time.deltaTime;
+            if (TTime > 2f)
+            {
+                // GameManager.Instance.GameOver();
+                Destroy(gameObject);
+                GS.Game_is_Over();
+            }
         }
-        //���� �ش� ������Ʈ�� ����ȭ �����ִ� ��ũ��Ʈ
+            
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
