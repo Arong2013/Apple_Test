@@ -9,10 +9,30 @@ public class AudioMixerController : MonoBehaviour
 {
     public AudioMixer GameAudio;
     Slider MyAudioSlider;
+    float value_BGM;
+    float value_SFX;
 
     public void Awake()
     {
         MyAudioSlider = gameObject.GetComponent<Slider>();
+        if(gameObject.name == "BGM_Volume")
+        {
+            bool result = GameAudio.GetFloat("BGM",out value_BGM );
+            if(result)
+            {
+                MyAudioSlider.value = value_BGM;
+            }
+        }
+        if(gameObject.name == "SFX_Volume")
+        {
+            bool result = GameAudio.GetFloat("SFX", out value_SFX);
+            if (result)
+            {
+                MyAudioSlider.value = value_SFX;
+            }
+        }
+
+        
     }
 
 

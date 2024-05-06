@@ -7,13 +7,13 @@ using UnityEngine.UI;
 
 public class TitleUI : MonoBehaviour
 {
-    [SerializeField] Button startBtn, CreditBtn, RankBtn;
+    [SerializeField] Button startBtn, CreditBtn, RankBtn, MenuBtn;
 
     [SerializeField] TMP_InputField name_inputField;
 
     [SerializeField] TextMeshProUGUI inputField;
 
-    [SerializeField] GameObject Credit, RankUI;
+    [SerializeField] GameObject Credit, RankUI, MainMenu;
 
 
 
@@ -45,6 +45,16 @@ public class TitleUI : MonoBehaviour
              else
                  RankUI.SetActive(true);
          });
+
+        MenuBtn.onClick.AddListener(() =>
+        {
+            if (MainMenu.gameObject.activeSelf)
+                MainMenu.SetActive(false);
+            else
+                MainMenu.SetActive(true);
+
+        });
+
 
         name_inputField.onEndEdit.AddListener((aa) =>
         {
