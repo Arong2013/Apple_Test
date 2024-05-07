@@ -10,7 +10,7 @@ public class MainManager : Singleton<MainManager>
     {
         playerName = _name;
         Destroy(UIManager.Instance);
-        Destroy(GameManager.Instance);
+      //  Destroy(GameManager.Instance);
         SceneManager.LoadScene("Pixel_Modifying_Play_Scene");
     }
 }

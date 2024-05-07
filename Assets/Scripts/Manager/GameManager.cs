@@ -19,8 +19,8 @@ public class GameManager : Singleton<GameManager>
     public void Start()
     {
         rankSystem = GetComponent<RankSystem>();
-
-         StartCoroutine(rankSystem.StartPlayGame());  
+        StartCoroutine(rankSystem.StartPlayGame());  
+         SceneManager.sceneLoaded += OnSceneLoaded;
         // GameObject apple = Instantiate(NextApple().gameObject, AppleDropTransform.transform.position, Quaternion.identity);
         // cunObj = apple.GetComponent<AppleObj>();
     }
@@ -73,9 +73,20 @@ public class GameManager : Singleton<GameManager>
     public void Restart()
     {
         Destroy(UIManager.Instance.gameObject);
-        Destroy(this.gameObject);
         SceneManager.LoadScene("Pixel_Modifying_Play_Scene");
         Time.timeScale = 1;
+    }
+
+     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+         StartCoroutine(rankSystem.StartPlayGame());  
+         Fever_count = 0;
+         score = 0;
+    }
+
+    private void OnDisable() {
+        
+        print("지워짐");
     }
 
 }

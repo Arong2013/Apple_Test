@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
@@ -11,6 +12,8 @@ public class RankUI : MonoBehaviour
 
     [SerializeField] Sprite GoldMd,SilverMd,BronzeMd;
     List<PlayerInformation> rank;
+
+
     public void Init(List<PlayerInformation> _list)
     {
         rank = _list;
@@ -32,5 +35,20 @@ public class RankUI : MonoBehaviour
             else
                 slotList[i].AddRank(null, rank[i].Score, rank[i].playerName);
         }
+    }
+
+    private void Start() 
+    {
+     Transform[] allChildren = GetComponentsInChildren<Transform>();
+     foreach(Transform transform in allChildren)
+     {
+        if(transform.name == "X_Btn")
+        {
+            transform.GetComponent<Button>().onClick. AddListener(() =>
+        {
+           gameObject.SetActive(false);
+        });
+        }
+     }
     }
 }

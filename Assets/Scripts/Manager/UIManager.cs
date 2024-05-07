@@ -79,15 +79,14 @@ public class UIManager : Singleton<UIManager>
     public void Restart()
     {
         SoundManager.Instance.ClickSound();
-        Destroy(GameManager.Instance.gameObject);
+        // Destroy(GameManager.Instance.gameObject);
         Destroy(this.gameObject);
         SceneManager.LoadScene("Pixel_Modifying_Play_Scene");
         Time.timeScale = 1;
     }
 
     public void GoTitle()
-    {
-         Destroy(GameManager.Instance.gameObject);
+    {//  Destroy(GameManager.Instance.gameObject);
         Destroy(this.gameObject);
         SoundManager.Instance.ClickSound();
         SceneManager.LoadScene("Title_Scene");
@@ -101,5 +100,6 @@ public class UIManager : Singleton<UIManager>
         Application.Quit();
         Time.timeScale = 1;
     }
+
 
 }
