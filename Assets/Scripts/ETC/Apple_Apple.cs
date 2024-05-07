@@ -220,7 +220,7 @@ public class Apple_Apple : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.CompareTag("Finish"))
+        if(collision.CompareTag("Finish") && transform.parent.name == "System")
         {
             FinishTime += Time.deltaTime;
 
