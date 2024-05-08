@@ -12,19 +12,23 @@ public class RankUI : MonoBehaviour
 
     [SerializeField] Sprite GoldMd,SilverMd,BronzeMd;
     List<PlayerInformation> rank;
+    
+
+    private void OnEnable() {
+        UIManager.Instance.RankUI.SetActive(true);
+        GameManager.Instance.StartRank();
+    }
 
 
     public void Init(List<PlayerInformation> _list)
     {
         rank = _list;
-
-
+        slotList.Clear();
         for(var a = 0; a < Parent.childCount; a++)
         {
             slotList.Add(Parent.GetChild(a).GetComponent<RankSlot>());
         }
-
-        for(int i = 0; i<rank.Count; i++)
+        for(int i = 0; i<slotList.Count; i++)
         {
             if (i == 0)
                 slotList[i].AddRank(GoldMd, rank[i].Score, rank[i].playerName);
