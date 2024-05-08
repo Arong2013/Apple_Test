@@ -226,6 +226,7 @@ public class Apple_Apple : MonoBehaviour
 
             if (FinishTime > 2.5f)
             {
+                Debug.Log("게임오버");
                 G_S.Game_is_Over();
 
             }
