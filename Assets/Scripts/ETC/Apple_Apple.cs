@@ -115,8 +115,8 @@ public class Apple_Apple : MonoBehaviour
 
     public void IsGrab()
     {
-        Left_Blocked = -21 + transform.localScale.x / 2;
-        Right_Blocked = 21 - transform.localScale.x / 2;
+        Left_Blocked = (G_S.Wall_L.transform.position.x) + transform.localScale.x / 2;
+        Right_Blocked = -(G_S.Wall_L.transform.position.x) - transform.localScale.x / 2;
         
         if (Input.GetMouseButtonDown(0))
         {

@@ -55,7 +55,7 @@ public class Drop_Apple : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0) && isclicked == true)
         {
-            if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 21)
+            if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < -(G_S.Wall_L.transform.position.x))
             {
                 //���콺 ���� ��ư�� ������ ���÷��� �� ���� ������Ʈ�� �״� ��� ������Ʈ�� �ý��� ������Ʈ�� ���� ������Ʈ�� �����Ŵ
                 if (isApple == false)
@@ -137,41 +137,3 @@ public class Drop_Apple : MonoBehaviour
     }
 
 }
-
-
-////if(Input.GetMouseButtonDown(0))
-////{
-////    if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < Walls_X[1] && isApple == false)
-////    {
-////        already_clicked = true;
-////    }
-////}
-//if (Input.GetMouseButtonUp(0))
-//{
-//    if (Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x) < 15)
-//    {
-//        //���콺 ���� ��ư�� ������ ���÷��� �� ���� ������Ʈ�� �״� ��� ������Ʈ�� �ý��� ������Ʈ�� ���� ������Ʈ�� �����Ŵ
-//        if (isApple == false)
-//        {
-//            isApple = true; //���� ������Ʈ�� ��� ������Ʈ�� �Ѱ������Ƿ� �װ� üũ�ϱ����� ����� isApple�� true��Ŵ
-//        }
-//        if (transform.childCount > 0)
-//        {
-//            transform.GetChild(0).parent = System.transform;
-//        }
-//        //already_clicked = false;
-//    }
-//            //else if(already_clicked == true)
-//            //{
-//            //    Debug.Log("�̹� Ŭ���߾���");
-//            //    //���콺 ���� ��ư�� ������ ���÷��� �� ���� ������Ʈ�� �״� ��� ������Ʈ�� �ý��� ������Ʈ�� ���� ������Ʈ�� �����Ŵ
-//            //    if (isApple == false)
-//            //    {
-//            //        isApple = true; //���� ������Ʈ�� ��� ������Ʈ�� �Ѱ������Ƿ� �װ� üũ�ϱ����� ����� isApple�� true��Ŵ
-//            //    }
-//            //    if (transform.childCount > 0)
-//            //    {
-//            //        transform.GetChild(0).parent = System.transform;
-//            //    }
-//            //    already_clicked = false;
-//            //}
