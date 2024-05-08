@@ -23,6 +23,7 @@ public class GameManager : Singleton<GameManager>
          SceneManager.sceneLoaded += OnSceneLoaded;
         // GameObject apple = Instantiate(NextApple().gameObject, AppleDropTransform.transform.position, Quaternion.identity);
         // cunObj = apple.GetComponent<AppleObj>();
+
     }
     /*
     public void Update()
@@ -67,6 +68,7 @@ public class GameManager : Singleton<GameManager>
     }
     public void GameOver()
     {
+        UIManager.Instance.GameOverUI.SetActive(true);
         rankSystem.GameOver(score);
     }
 
