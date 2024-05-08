@@ -8454,6 +8454,7 @@ MonoBehaviour:
   Quit: {fileID: 1405599304}
   Fever: {fileID: 364804351}
   Best_Score: {fileID: 826020724}
+  GameOverUI: {fileID: 276839983}
   EscUI: {fileID: 0}
   rankUI: {fileID: 641831677}
 --- !u!1 &2120235043

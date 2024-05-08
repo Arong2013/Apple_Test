@@ -16,7 +16,7 @@ public class UIManager : Singleton<UIManager>
     public Button Retry;
     public Button Quit;
     public Image Fever;
-    public GameObject Best_Score;
+    public GameObject Best_Score,GameOverUI;
 
     string Name;
 

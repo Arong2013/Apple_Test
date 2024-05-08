@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField] SerializedDictionary<int, GameObject> NextAppleData;
-    RankSystem rankSystem;
+    public RankSystem rankSystem;
     [SerializeField] Transform AppleDropTransform;
 
 
@@ -19,10 +19,11 @@ public class GameManager : Singleton<GameManager>
     public void Start()
     {
         rankSystem = GetComponent<RankSystem>();
-        StartCoroutine(rankSystem.StartPlayGame());  
+        StartRank();
          SceneManager.sceneLoaded += OnSceneLoaded;
         // GameObject apple = Instantiate(NextApple().gameObject, AppleDropTransform.transform.position, Quaternion.identity);
         // cunObj = apple.GetComponent<AppleObj>();
+
     }
     /*
     public void Update()
@@ -67,6 +68,7 @@ public class GameManager : Singleton<GameManager>
     }
     public void GameOver()
     {
+        UIManager.Instance.GameOverUI.SetActive(true);
         rankSystem.GameOver(score);
     }
 
@@ -87,6 +89,12 @@ public class GameManager : Singleton<GameManager>
     private void OnDisable() {
         
         print("지워짐");
+    }
+
+
+    public void StartRank()
+    {
+        StartCoroutine(rankSystem.StartPlayGame());  
     }
 
 }
