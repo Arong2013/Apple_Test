@@ -3231,7 +3231,7 @@ MonoBehaviour:
   Best_Score: {fileID: 0}
   GameOverUI: {fileID: 0}
   EscUI: {fileID: 0}
-  rankUI: {fileID: 541283669}
+  rankUI: {fileID: 0}
 --- !u!114 &1366149315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5193,7 +5193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7087988267163927648, guid: 66bc5bbd747ebe1499fa076348626a18, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -63.000023
+      value: -63.00003
       objectReference: {fileID: 0}
     - target: {fileID: 7347653469050414523, guid: 66bc5bbd747ebe1499fa076348626a18, type: 3}
       propertyPath: m_HorizontalAlignment
