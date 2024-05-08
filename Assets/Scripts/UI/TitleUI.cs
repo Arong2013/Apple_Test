@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class TitleUI : MonoBehaviour
 {
-    [SerializeField] Button startBtn, CreditBtn, RankBtn, MenuBtn;
+    [SerializeField] Button startBtn, CreditBtn, RankBtn, MenuBtn,QuitBtn;
 
     [SerializeField] TMP_InputField name_inputField;
 
@@ -63,6 +63,11 @@ public class TitleUI : MonoBehaviour
 
         }
         );
+
+        QuitBtn.onClick.AddListener(() =>
+        {
+            UIManager.Instance.Game_Quit();
+        });
 
 
     }
