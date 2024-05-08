@@ -56,9 +56,18 @@ public class TitleUI : MonoBehaviour
         });
 
 
-        name_inputField.onEndEdit.AddListener((aa) =>
+        name_inputField.onSubmit.AddListener((aa) =>
         {
-            MainManager.Instance.GoToPlayScene(this.inputField.text);
+            if (name_inputField.text.Length !=0 && name_inputField.text != " ")
+            {
+                Debug.Log("this.inputField.text.Length : " + name_inputField.text.Length);
+                MainManager.Instance.GoToPlayScene(this.inputField.text);
+            }
+            else
+            {
+                Debug.Log("입력받은 값이 너무 작습니다.");
+            }
+
 
 
         }
